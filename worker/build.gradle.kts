@@ -7,7 +7,7 @@ plugins {
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
-description = "Payment Status Check Service with Temporal Workflow"
+description = "Payment Status Check Service with Temporal"
 
 java {
 	toolchain {
@@ -22,25 +22,18 @@ repositories {
 val temporalVersion = "1.32.1"
 
 dependencies {
-	// Spring Boot
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 
-	// Kotlin
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("tools.jackson.module:jackson-module-kotlin")
 
-	// Temporal
 	implementation("io.temporal:temporal-sdk:$temporalVersion")
 	implementation("io.temporal:temporal-kotlin:$temporalVersion")
 
-	// RestClient is included in spring-boot-starter-webmvc
-
-	// Configuration properties
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-	// Test
 	testImplementation("org.springframework.boot:spring-boot-starter-actuator-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

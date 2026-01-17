@@ -20,17 +20,17 @@ payment-check:
     max-attempts: 3                 # Retry count for all activities
     timeout-seconds: 5              # Timeout per activity attempt
 
-# External services (to be configured per environment)
+# External services
 external-services:
   elasticsearch:
-    url: http://localhost:9200
+    url: http://localhost:8090/elasticsearch
     index: payments
 
   idb-facade:
-    url: http://localhost:8081
+    url: http://localhost:8090/idb-facade
 
   pgi-gateway:
-    url: http://localhost:8082
+    url: http://localhost:8090/pgi-gateway
 
 # Actuator
 management:
