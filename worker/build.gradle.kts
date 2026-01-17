@@ -19,7 +19,7 @@ repositories {
 	mavenCentral()
 }
 
-val temporalVersion = "1.27.0"
+val temporalVersion = "1.32.1"
 
 dependencies {
 	// Spring Boot
@@ -35,8 +35,7 @@ dependencies {
 	implementation("io.temporal:temporal-sdk:$temporalVersion")
 	implementation("io.temporal:temporal-kotlin:$temporalVersion")
 
-	// HTTP Client for external service calls (ES, IDB, PGI)
-	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	// RestClient is included in spring-boot-starter-webmvc
 
 	// Configuration properties
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")

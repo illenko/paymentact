@@ -687,10 +687,9 @@ paymentact/
 ## Dependencies
 
 ### Combined Application (worker module)
-- Spring Boot Starter Web (REST API)
+- Spring Boot Starter Web (REST API + RestClient for ES, IDB, PGI)
 - Spring Boot Starter Actuator (health/metrics)
 - Spring Boot Starter Validation
-- Spring Boot Starter WebFlux (HTTP client for ES, IDB, PGI)
 - Temporal SDK (`io.temporal:temporal-sdk`)
 - Temporal Kotlin (`io.temporal:temporal-kotlin`)
 - Jackson Kotlin Module
