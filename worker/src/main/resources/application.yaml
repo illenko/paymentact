@@ -1,3 +1,40 @@
 spring:
   application:
-    name: worker
+    name: payment-act
+
+# Temporal configuration
+temporal:
+  service-address: localhost:7233
+  namespace: default
+  task-queue: payment-status-check
+
+# Payment check workflow configuration
+payment-check:
+  elasticsearch:
+    max-parallel-queries: 10        # Max concurrent ES calls during gateway lookup
+
+  gateway:
+    max-payments-per-chunk: 5       # Max payment IDs per chunk sent to gateway
+
+  retry:
+    max-attempts: 3                 # Retry count for all activities
+    timeout-seconds: 5              # Timeout per activity attempt
+
+# External services (to be configured per environment)
+external-services:
+  elasticsearch:
+    url: http://localhost:9200
+    index: payments
+
+  idb-facade:
+    url: http://localhost:8081
+
+  pgi-gateway:
+    url: http://localhost:8082
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
