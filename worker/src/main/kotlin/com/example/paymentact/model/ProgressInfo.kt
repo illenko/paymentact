@@ -5,5 +5,6 @@ data class ProgressInfo(
     val gatewaysIdentified: Int,
     val chunksTotal: Int,
     val chunksCompleted: Int,
-    val chunksFailed: Int
+    val chunksFailed: Int,
+    val currentPhase: String = "UNKNOWN"
 )

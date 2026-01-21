@@ -1,7 +1,10 @@
 package com.example.paymentact.activity
 
 import com.example.paymentact.config.ExternalServicesConfig
+import com.example.paymentact.exception.ElasticsearchException
+import com.example.paymentact.exception.PaymentNotFoundException
 import com.example.paymentact.model.GatewayInfo
+import io.temporal.activity.Activity
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatusCode
 import org.springframework.stereotype.Component
@@ -20,23 +23,26 @@ class ElasticsearchActivitiesImpl(
         .build()
 
     override fun getGatewayForPayment(paymentId: String): GatewayInfo {
-        logger.info("Looking up gateway for payment: {}", paymentId)
+        val activityInfo = Activity.getExecutionContext().info
+        logger.info("[workflowId={}, activityId={}] Looking up gateway for payment: {}",
+            activityInfo.workflowId, activityInfo.activityId, paymentId)
 
         val response = restClient.get()
             .uri("/${externalServicesConfig.elasticsearch.index}/_doc/{paymentId}", paymentId)
             .retrieve()
             .onStatus(HttpStatusCode::is4xxClientError) { _, _ ->
-                throw RuntimeException("Payment not found in Elasticsearch: $paymentId")
+                throw PaymentNotFoundException(paymentId)
             }
-            .onStatus(HttpStatusCode::is5xxServerError) { _, _ ->
-                throw RuntimeException("Elasticsearch server error for payment: $paymentId")
+            .onStatus(HttpStatusCode::is5xxServerError) { _, response ->
+                throw ElasticsearchException(paymentId, "Server error: ${response.statusCode}")
             }
             .body(ElasticsearchResponse::class.java)
 
         val gatewayName = response?.source?.gatewayName
-            ?: throw RuntimeException("Gateway not found for payment: $paymentId")
+            ?: throw PaymentNotFoundException(paymentId)
 
-        logger.info("Found gateway {} for payment {}", gatewayName, paymentId)
+        logger.info("[workflowId={}, activityId={}] Found gateway {} for payment {}",
+            activityInfo.workflowId, activityInfo.activityId, gatewayName, paymentId)
         return GatewayInfo(paymentId = paymentId, gatewayName = gatewayName)
     }
 

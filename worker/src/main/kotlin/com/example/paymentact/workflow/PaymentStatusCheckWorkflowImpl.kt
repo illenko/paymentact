@@ -5,7 +5,9 @@ import com.example.paymentact.model.CheckStatusResult
 import com.example.paymentact.model.FailedChunk
 import com.example.paymentact.model.GatewayInfo
 import com.example.paymentact.model.GatewayResult
+import com.example.paymentact.model.PaymentStatusCheckInput
 import com.example.paymentact.model.ProgressInfo
+import com.example.paymentact.model.WorkflowConfig
 import io.temporal.activity.ActivityOptions
 import io.temporal.common.RetryOptions
 import io.temporal.workflow.Async
@@ -24,52 +26,65 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
     private var chunksTotal: Int = 0
     private var chunksCompleted: Int = 0
     private var chunksFailed: Int = 0
+    private var currentPhase: String = "INITIALIZING"
 
-    // Configuration - these would ideally come from workflow input or side effect
-    private val maxParallelEsQueries = 10
-    private val maxPaymentsPerChunk = 5
+    // Configuration - set from input
+    private var config: WorkflowConfig = WorkflowConfig()
 
-    private val esActivities = Workflow.newActivityStub(
-        ElasticsearchActivities::class.java,
-        ActivityOptions.newBuilder()
-            .setStartToCloseTimeout(Duration.ofSeconds(30))
-            .setRetryOptions(
-                RetryOptions.newBuilder()
-                    .setMaximumAttempts(3)
-                    .setInitialInterval(Duration.ofSeconds(1))
-                    .setBackoffCoefficient(2.0)
-                    .setMaximumInterval(Duration.ofSeconds(10))
-                    .build()
-            )
-            .build()
-    )
+    private lateinit var esActivities: ElasticsearchActivities
 
-    override fun checkPaymentStatuses(paymentIds: List<String>): CheckStatusResult {
-        logger.info("Starting payment status check for {} payments", paymentIds.size)
-        totalPayments = paymentIds.size
+    private fun initializeActivities() {
+        esActivities = Workflow.newActivityStub(
+            ElasticsearchActivities::class.java,
+            ActivityOptions.newBuilder()
+                .setStartToCloseTimeout(Duration.ofSeconds(config.activityTimeoutSeconds))
+                .setRetryOptions(
+                    RetryOptions.newBuilder()
+                        .setMaximumAttempts(config.maxRetryAttempts)
+                        .setInitialInterval(Duration.ofSeconds(1))
+                        .setBackoffCoefficient(2.0)
+                        .setMaximumInterval(Duration.ofSeconds(10))
+                        .build()
+                )
+                .build()
+        )
+    }
+
+    override fun checkPaymentStatuses(input: PaymentStatusCheckInput): CheckStatusResult {
+        val workflowId = Workflow.getInfo().workflowId
+        config = input.config
+        initializeActivities()
+
+        logger.info("[workflowId={}] Starting payment status check for {} payments with config: maxParallelEsQueries={}, maxPaymentsPerChunk={}",
+            workflowId, input.paymentIds.size, config.maxParallelEsQueries, config.maxPaymentsPerChunk)
+
+        totalPayments = input.paymentIds.size
+        currentPhase = "ES_LOOKUP"
 
         // Step 1: ES Lookups (parallel with limited concurrency)
-        val (gatewayByPayment, lookupFailed) = lookupGatewaysParallel(paymentIds)
+        val (gatewayByPayment, lookupFailed) = lookupGatewaysParallel(input.paymentIds, workflowId)
         gatewaysIdentified = gatewayByPayment.values.distinct().size
 
-        logger.info(
-            "Gateway lookup complete: {} successful, {} failed, {} unique gateways",
-            gatewayByPayment.size, lookupFailed.size, gatewaysIdentified
-        )
+        logger.info("[workflowId={}] Gateway lookup complete: {} successful, {} failed, {} unique gateways",
+            workflowId, gatewayByPayment.size, lookupFailed.size, gatewaysIdentified)
+
+        currentPhase = "GATEWAY_PROCESSING"
 
         // Step 2: Group by gateway and chunk
         val paymentsByGateway = gatewayByPayment.entries
             .groupBy({ it.value }, { it.key })
 
         val chunksByGateway = paymentsByGateway.mapValues { (_, payments) ->
-            payments.chunked(maxPaymentsPerChunk)
+            payments.chunked(config.maxPaymentsPerChunk)
         }
 
         chunksTotal = chunksByGateway.values.sumOf { it.size }
-        logger.info("Created {} chunks across {} gateways", chunksTotal, chunksByGateway.size)
+        logger.info("[workflowId={}] Created {} chunks across {} gateways", workflowId, chunksTotal, chunksByGateway.size)
 
         // Step 3: Spawn child workflows per gateway (parallel across gateways)
-        val gatewayResults = processGatewaysParallel(chunksByGateway)
+        val gatewayResults = processGatewaysParallel(chunksByGateway, workflowId)
+
+        currentPhase = "AGGREGATING"
 
         // Step 4: Aggregate results
         val successful = mutableMapOf<String, List<String>>()
@@ -83,17 +98,13 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
                 failed[result.gateway] = result.failedChunks
                 chunksFailed += result.failedChunks.size
             }
-            chunksCompleted += result.failedChunks.size +
-                    (if (result.successfulPaymentIds.isNotEmpty()) 1 else 0)
         }
 
-        // Recalculate completed chunks properly
         chunksCompleted = chunksTotal
+        currentPhase = "COMPLETED"
 
-        logger.info(
-            "Payment status check complete: {} gateways successful, {} gateways with failures, {} lookup failures",
-            successful.size, failed.size, lookupFailed.size
-        )
+        logger.info("[workflowId={}] Payment status check complete: {} gateways successful, {} gateways with failures, {} lookup failures",
+            workflowId, successful.size, failed.size, lookupFailed.size)
 
         return CheckStatusResult(
             successful = successful,
@@ -102,12 +113,14 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
         )
     }
 
-    private fun lookupGatewaysParallel(paymentIds: List<String>): Pair<Map<String, String>, List<String>> {
+    private fun lookupGatewaysParallel(paymentIds: List<String>, workflowId: String): Pair<Map<String, String>, List<String>> {
         val gatewayByPayment = mutableMapOf<String, String>()
         val lookupFailed = mutableListOf<String>()
 
-        // Process in batches to limit concurrency
-        paymentIds.chunked(maxParallelEsQueries).forEach { batch ->
+        val batches = paymentIds.chunked(config.maxParallelEsQueries)
+        logger.info("[workflowId={}] Processing {} ES lookup batches", workflowId, batches.size)
+
+        batches.forEachIndexed { batchIndex, batch ->
             val promises = batch.map { paymentId ->
                 Async.function {
                     try {
@@ -126,29 +139,29 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
 
                 result.onSuccess { info ->
                     gatewayByPayment[info.paymentId] = info.gatewayName
-                }.onFailure {
-                    logger.warn("Failed to lookup gateway for payment {}: {}", paymentId, it.message)
+                }.onFailure { e ->
+                    logger.warn("[workflowId={}] Failed to lookup gateway for payment {}: {}",
+                        workflowId, paymentId, e.message)
                     lookupFailed.add(paymentId)
                 }
             }
+
+            logger.debug("[workflowId={}] Completed ES lookup batch {}/{}", workflowId, batchIndex + 1, batches.size)
         }
 
         return Pair(gatewayByPayment, lookupFailed)
     }
 
-    private fun processGatewaysParallel(chunksByGateway: Map<String, List<List<String>>>): List<GatewayResult> {
-        val childWorkflowOptions = ChildWorkflowOptions.newBuilder()
-            .setWorkflowId("") // Will be set per gateway
-            .build()
-
+    private fun processGatewaysParallel(chunksByGateway: Map<String, List<List<String>>>, workflowId: String): List<GatewayResult> {
         val promises = mutableListOf<Promise<GatewayResult>>()
         val gateways = mutableListOf<String>()
 
         for ((gateway, chunks) in chunksByGateway) {
             gateways.add(gateway)
 
+            val childWorkflowId = "$workflowId-gateway-$gateway"
             val childOptions = ChildWorkflowOptions.newBuilder()
-                .setWorkflowId("${Workflow.getInfo().workflowId}-gateway-$gateway")
+                .setWorkflowId(childWorkflowId)
                 .build()
 
             val childWorkflow = Workflow.newChildWorkflowStub(
@@ -156,19 +169,27 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
                 childOptions
             )
 
+            logger.info("[workflowId={}] Spawning child workflow {} for gateway {} with {} chunks",
+                workflowId, childWorkflowId, gateway, chunks.size)
+
             val promise = Async.function { childWorkflow.processGateway(gateway, chunks) }
             promises.add(promise)
         }
 
         // Wait for all child workflows to complete
         return promises.mapIndexed { index, promise ->
+            val gateway = gateways[index]
             try {
-                promise.get()
+                val result = promise.get()
+                logger.info("[workflowId={}] Child workflow for gateway {} completed: {} successful, {} failed chunks",
+                    workflowId, gateway, result.successfulPaymentIds.size, result.failedChunks.size)
+                result
             } catch (e: Exception) {
-                logger.error("Child workflow for gateway {} failed: {}", gateways[index], e.message)
+                logger.error("[workflowId={}] Child workflow for gateway {} failed: {}",
+                    workflowId, gateway, e.message)
                 // Return a failed result for this gateway
                 GatewayResult(
-                    gateway = gateways[index],
+                    gateway = gateway,
                     successfulPaymentIds = emptyList(),
                     failedChunks = listOf(
                         FailedChunk(
@@ -189,7 +210,8 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
             gatewaysIdentified = gatewaysIdentified,
             chunksTotal = chunksTotal,
             chunksCompleted = chunksCompleted,
-            chunksFailed = chunksFailed
+            chunksFailed = chunksFailed,
+            currentPhase = currentPhase
         )
     }
 }
