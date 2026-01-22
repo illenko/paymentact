@@ -14,6 +14,8 @@ import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.springframework.test.web.servlet.client.RestTestClient
 import org.springframework.test.web.servlet.client.expectBody
+import org.awaitility.kotlin.await
+import java.time.Duration
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
@@ -115,22 +117,19 @@ class PaymentStatusCheckE2ETest {
         )
     }
 
-    private fun pollUntilCompleted(workflowId: String, maxAttempts: Int = 30): CheckStatusQueryResponse {
-        repeat(maxAttempts) {
-            Thread.sleep(500)
-            val response = client.get()
-                .uri("/payments/check-status/$workflowId")
-                .exchange()
-                .expectBody(CheckStatusQueryResponse::class.java)
-                .returnResult()
-                .responseBody
-
-            if (response?.status == WorkflowStatus.COMPLETED ||
-                response?.status == WorkflowStatus.FAILED
-            ) {
-                return response
+    private fun pollUntilCompleted(workflowId: String): CheckStatusQueryResponse {
+        lateinit var result: CheckStatusQueryResponse
+        await.atMost(Duration.ofSeconds(15))
+            .pollInterval(Duration.ofMillis(500))
+            .untilAsserted {
+                result = client.get()
+                    .uri("/payments/check-status/$workflowId")
+                    .exchange()
+                    .expectBody<CheckStatusQueryResponse>()
+                    .returnResult()
+                    .responseBody!!
+                assertTrue(result.status == WorkflowStatus.COMPLETED || result.status == WorkflowStatus.FAILED)
             }
-        }
-        throw AssertionError("Workflow did not complete within timeout")
+        return result
     }
 }

@@ -40,6 +40,7 @@ dependencies {
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testImplementation("io.temporal:temporal-testing:$temporalVersion")
 	testImplementation("org.wiremock:wiremock-standalone:3.13.2")
+	testImplementation("org.awaitility:awaitility-kotlin:4.3.0")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
