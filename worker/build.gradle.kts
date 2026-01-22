@@ -28,9 +28,9 @@ dependencies {
 
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("tools.jackson.module:jackson-module-kotlin")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // Jackson 2.x for Temporal
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-	implementation("io.temporal:temporal-sdk:$temporalVersion")
+	implementation("io.temporal:temporal-spring-boot-starter:$temporalVersion")
 	implementation("io.temporal:temporal-kotlin:$temporalVersion")
 
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")

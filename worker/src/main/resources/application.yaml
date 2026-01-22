@@ -1,12 +1,19 @@
 spring:
   application:
     name: payment-act
-
-# Temporal configuration
-temporal:
-  service-address: localhost:7233
-  namespace: default
-  task-queue: payment-status-check
+  temporal:
+    connection:
+      target: localhost:7233
+    namespace: default
+    workers:
+      - name: main
+        task-queue: payment-status-check
+        workflow-classes:
+          - com.example.paymentact.workflow.PaymentStatusCheckWorkflowImpl
+          - com.example.paymentact.workflow.GatewayWorkflowImpl
+        activity-beans:
+          - elasticsearchActivitiesImpl
+          - paymentGatewayActivitiesImpl
 
 # Payment check workflow configuration
 payment-check:

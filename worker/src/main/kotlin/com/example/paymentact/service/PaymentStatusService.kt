@@ -22,7 +22,7 @@ import java.util.UUID
 class PaymentStatusService(
     private val workflowClient: WorkflowClient,
     private val paymentCheckConfig: PaymentCheckConfig,
-    @Value("\${temporal.task-queue}") private val taskQueue: String
+    @Value("\${spring.temporal.workers[0].task-queue}") private val taskQueue: String
 ) {
 
     private val logger = LoggerFactory.getLogger(PaymentStatusService::class.java)
