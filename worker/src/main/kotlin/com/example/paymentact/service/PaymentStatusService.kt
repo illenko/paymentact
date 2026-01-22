@@ -65,16 +65,11 @@ class PaymentStatusService(
         try {
             val workflowStub = workflowClient.newUntypedWorkflowStub(workflowId)
 
-            val progress = try {
-                val typedStub = workflowClient.newWorkflowStub(
-                    PaymentStatusCheckWorkflow::class.java,
-                    workflowId
-                )
-                typedStub.getProgress()
-            } catch (e: Exception) {
+            val progress = runCatching {
+                workflowClient.newWorkflowStub(PaymentStatusCheckWorkflow::class.java, workflowId).getProgress()
+            }.onFailure { e ->
                 logger.warn("[workflowId={}] Could not query progress: {}", workflowId, e.message)
-                null
-            }
+            }.getOrNull()
 
             // Check if workflow is completed
             val describe = workflowClient.workflowServiceStubs.blockingStub()
@@ -102,13 +97,11 @@ class PaymentStatusService(
                     )
                 }
                 WorkflowExecutionStatus.WORKFLOW_EXECUTION_STATUS_COMPLETED -> {
-                    val result = try {
+                    val result = runCatching {
                         workflowStub.getResult(CheckStatusResult::class.java)
-                    } catch (e: Exception) {
-                        logger.error("[workflowId={}] Failed to get result for completed workflow: {}",
-                            workflowId, e.message)
-                        null
-                    }
+                    }.onFailure { e ->
+                        logger.error("[workflowId={}] Failed to get result for completed workflow: {}", workflowId, e.message)
+                    }.getOrNull()
 
                     logger.info("[workflowId={}] Workflow completed successfully", workflowId)
                     CheckStatusQueryResponse(

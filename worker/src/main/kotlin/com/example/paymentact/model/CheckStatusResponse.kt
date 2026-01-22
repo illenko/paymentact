@@ -12,6 +12,12 @@ data class CheckStatusQueryResponse(
     val result: CheckStatusResult?
 )
 
+data class CheckStatusResult(
+    val successful: Map<String, List<String>>,      // gateway -> paymentIds
+    val failed: Map<String, List<FailedChunk>>,     // gateway -> failed chunks
+    val gatewayLookupFailed: List<String>           // paymentIds where ES lookup failed
+)
+
 enum class WorkflowStatus {
     RUNNING,
     COMPLETED,

@@ -12,14 +12,14 @@ sealed class PaymentCheckException(
  * Thrown when a payment is not found in Elasticsearch
  */
 class PaymentNotFoundException(
-    val paymentId: String
+    paymentId: String
 ) : PaymentCheckException("Payment not found: $paymentId")
 
 /**
  * Thrown when Elasticsearch lookup fails
  */
 class ElasticsearchException(
-    val paymentId: String,
+    paymentId: String,
     message: String,
     cause: Throwable? = null
 ) : PaymentCheckException("ES lookup failed for payment $paymentId: $message", cause)
@@ -39,7 +39,7 @@ class IdbFacadeException(
  */
 class PgiGatewayException(
     val gateway: String,
-    val paymentId: String,
+    paymentId: String,
     message: String,
     cause: Throwable? = null
 ) : PaymentCheckException("PGI gateway call failed for payment $paymentId on gateway $gateway: $message", cause)
