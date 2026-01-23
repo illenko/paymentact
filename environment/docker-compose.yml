@@ -53,10 +53,12 @@ services:
       - POSTGRES_SEEDS=postgresql
       - BIND_ON_IP=0.0.0.0
       - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
+      - PROMETHEUS_ENDPOINT=0.0.0.0:9090
     networks:
       - temporal-network
     ports:
       - '7233:7233'
+      - '9090:9090'
     volumes:
       - ./dynamicconfig:/etc/temporal/config/dynamicconfig
     healthcheck:
@@ -105,6 +107,37 @@ services:
     container_name: mock-server
     ports:
       - "8090:8090"
+
+  victoria-metrics:
+    image: victoriametrics/victoria-metrics:v1.134.0
+    container_name: vm_single_node
+    ports:
+      - "8428:8428"
+    volumes:
+      - ./vm/prometheus.yml:/etc/vm/prometheus.yml
+    command:
+      - "-promscrape.config=/etc/vm/prometheus.yml"
+    restart: unless-stopped
+    networks:
+      - temporal-network
+
+  grafana:
+    image: grafana/grafana:11.5.2
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    depends_on:
+      - victoria-metrics
+    networks:
+      - temporal-network
 
 networks:
   temporal-network:

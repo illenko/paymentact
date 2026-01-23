@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 1s
+  scrape_timeout: 30s
+
+scrape_configs:
+  - job_name: 'temporal-metrics'
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - 'temporal:9090'
+        labels:
+          group: 'server-metrics'
