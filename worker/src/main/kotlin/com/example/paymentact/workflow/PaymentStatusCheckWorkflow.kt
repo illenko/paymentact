@@ -129,7 +129,18 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
         val gatewayByPayment = mutableMapOf<String, String>()
         val lookupFailed = mutableListOf<String>()
 
-        val batches = paymentIds.chunked(config.maxParallelEsQueries)
+        val batchSize = config.maxParallelEsQueries
+
+//        val version = Workflow.getVersion("es-batch-size", Workflow.DEFAULT_VERSION, 1)
+//
+//        val batchSize = if (version == Workflow.DEFAULT_VERSION) {
+//            config.maxParallelEsQueries       // old behavior
+//        } else {
+//            config.maxParallelEsQueries / 2   // new behavior
+//        }
+
+        val batches = paymentIds.chunked(batchSize)
+
         logger.info("[workflowId={}] Processing {} ES lookup batches", workflowId, batches.size)
 
         batches.forEachIndexed { batchIndex, batch ->

@@ -1,0 +1,5761 @@
+{
+  "events": [
+    {
+      "eventId": "1",
+      "eventTime": "2026-01-22T12:12:31.354900718Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_EXECUTION_STARTED",
+      "taskId": "3145738",
+      "workflowExecutionStartedEventAttributes": {
+        "workflowType": {
+          "name": "GatewayWorkflow"
+        },
+        "parentWorkflowNamespace": "default",
+        "parentWorkflowNamespaceId": "263b06aa-44a6-40ce-8716-a36183d978ac",
+        "parentWorkflowExecution": {
+          "workflowId": "payment-check-42682638-10ed-4ea4-8659-a5b767577d46",
+          "runId": "019be59e-a4f5-7cb5-b60e-8762324e5090"
+        },
+        "parentInitiatedEventId": "365",
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "W1sicGF5XzAwMSIsInBheV8wMDQiLCJwYXlfMDA1IiwicGF5XzAwNiIsInBheV8wMDciXSxbInBheV8wMDgiLCJwYXlfMDA5IiwicGF5XzAxMyIsInBheV8wMTgiLCJwYXlfMDIxIl0sWyJwYXlfMDMxIiwicGF5XzAzMiIsInBheV8wMzQiLCJwYXlfMDM2IiwicGF5XzAzNyJdLFsicGF5XzA0MCIsInBheV8wNDIiLCJwYXlfMDQ1IiwicGF5XzA1MSIsInBheV8wNTIiXSxbInBheV8wNTMiLCJwYXlfMDU2IiwicGF5XzA1NyIsInBheV8wNTkiLCJwYXlfMDY1Il0sWyJwYXlfMDY2IiwicGF5XzA2NyIsInBheV8wNzIiLCJwYXlfMDczIiwicGF5XzA3NCJdLFsicGF5XzA3NSIsInBheV8wNzkiLCJwYXlfMDgxIiwicGF5XzA4MiIsInBheV8wODUiXSxbInBheV8wODkiLCJwYXlfMDkxIiwicGF5XzA5MyIsInBheV8wOTYiLCJwYXlfMDk3Il0sWyJwYXlfMTAwIl1d"
+            }
+          ]
+        },
+        "workflowExecutionTimeout": "0s",
+        "workflowRunTimeout": "0s",
+        "workflowTaskTimeout": "10s",
+        "originalExecutionRunId": "019be59e-d8fa-7db9-9edf-3fe7413fe083",
+        "firstExecutionRunId": "019be59e-d8fa-7db9-9edf-3fe7413fe083",
+        "attempt": 1,
+        "firstWorkflowTaskBackoff": "0s",
+        "header": {},
+        "workflowId": "payment-check-42682638-10ed-4ea4-8659-a5b767577d46-gateway-adyen",
+        "rootWorkflowExecution": {
+          "workflowId": "payment-check-42682638-10ed-4ea4-8659-a5b767577d46",
+          "runId": "019be59e-a4f5-7cb5-b60e-8762324e5090"
+        }
+      }
+    },
+    {
+      "eventId": "2",
+      "eventTime": "2026-01-22T12:12:31.384276260Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145750",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "3",
+      "eventTime": "2026-01-22T12:12:31.387642802Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3145753",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "2",
+        "identity": "21096@00170.local",
+        "requestId": "e750c2f0-53ea-4c49-9669-76003514ffff",
+        "historySizeBytes": "1027"
+      }
+    },
+    {
+      "eventId": "4",
+      "eventTime": "2026-01-22T12:12:31.393275593Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3145757",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "2",
+        "startedEventId": "3",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "langUsedFlags": [
+            1
+          ],
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "5",
+      "eventTime": "2026-01-22T12:12:31.393314802Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3145758",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "8ad337d9-587e-33b2-820b-e9ff131d9dd7",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMDAxIiwicGF5XzAwNCIsInBheV8wMDUiLCJwYXlfMDA2IiwicGF5XzAwNyJd"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "4",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "6",
+      "eventTime": "2026-01-22T12:12:31.398240843Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3145781",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "5",
+        "identity": "21096@00170.local",
+        "requestId": "e41fd23c-30c4-48d1-be61-504c6764e772",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "7",
+      "eventTime": "2026-01-22T12:12:31.458072510Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3145782",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "5",
+        "startedEventId": "6",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "8",
+      "eventTime": "2026-01-22T12:12:31.458078260Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145783",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "9",
+      "eventTime": "2026-01-22T12:12:31.462120427Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3145787",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "8",
+        "identity": "21096@00170.local",
+        "requestId": "e70debbf-171a-4155-a39a-801fcafab389",
+        "historySizeBytes": "1716"
+      }
+    },
+    {
+      "eventId": "10",
+      "eventTime": "2026-01-22T12:12:31.468168593Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3145791",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "8",
+        "startedEventId": "9",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "11",
+      "eventTime": "2026-01-22T12:12:31.468262468Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3145792",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "9553ed30-ba53-351c-a29c-aac7e4288247",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMDEi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "10",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "12",
+      "eventTime": "2026-01-22T12:12:31.473382593Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3145808",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "11",
+        "identity": "21096@00170.local",
+        "requestId": "2a0782b7-8fb3-4773-8c5e-eb29debb2bdd",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "13",
+      "eventTime": "2026-01-22T12:12:31.515963593Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3145809",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "11",
+        "startedEventId": "12",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "14",
+      "eventTime": "2026-01-22T12:12:31.515979093Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145810",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "15",
+      "eventTime": "2026-01-22T12:12:31.524529010Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3145818",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "14",
+        "identity": "21096@00170.local",
+        "requestId": "41708f93-fbd7-4f1b-b3d5-c4977f24f163",
+        "historySizeBytes": "2361"
+      }
+    },
+    {
+      "eventId": "16",
+      "eventTime": "2026-01-22T12:12:31.534924385Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3145824",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "14",
+        "startedEventId": "15",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "17",
+      "eventTime": "2026-01-22T12:12:31.535000635Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3145825",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "63b2345c-d211-3059-b9e6-05bd6fcf35e1",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMDQi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "16",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "18",
+      "eventTime": "2026-01-22T12:12:31.539798302Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3145836",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "17",
+        "identity": "21096@00170.local",
+        "requestId": "ef1d5dd2-9ce3-4756-9241-81d0f7e624ba",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "19",
+      "eventTime": "2026-01-22T12:12:31.577238718Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3145837",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "17",
+        "startedEventId": "18",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "20",
+      "eventTime": "2026-01-22T12:12:31.577245843Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145838",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "21",
+      "eventTime": "2026-01-22T12:12:31.582497718Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3145845",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "20",
+        "identity": "21096@00170.local",
+        "requestId": "847d4e4d-cfd8-4a0e-a0f2-8ec4b32b0601",
+        "historySizeBytes": "3006"
+      }
+    },
+    {
+      "eventId": "22",
+      "eventTime": "2026-01-22T12:12:31.588747135Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3145854",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "20",
+        "startedEventId": "21",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "23",
+      "eventTime": "2026-01-22T12:12:31.588780302Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3145855",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "801d0d5e-7950-38f6-9323-6df0aaf14232",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMDUi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "22",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "24",
+      "eventTime": "2026-01-22T12:12:31.594821677Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3145868",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "23",
+        "identity": "21096@00170.local",
+        "requestId": "61225f47-e3d8-4905-b0d8-2f909ca6e5a5",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "25",
+      "eventTime": "2026-01-22T12:12:31.630890802Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3145869",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "23",
+        "startedEventId": "24",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "26",
+      "eventTime": "2026-01-22T12:12:31.630892802Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145870",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "27",
+      "eventTime": "2026-01-22T12:12:31.638617760Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3145877",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "26",
+        "identity": "21096@00170.local",
+        "requestId": "76c6f67b-9865-4ffa-9ba8-3ef7f34a7dcc",
+        "historySizeBytes": "3651"
+      }
+    },
+    {
+      "eventId": "28",
+      "eventTime": "2026-01-22T12:12:31.645815677Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3145886",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "26",
+        "startedEventId": "27",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "29",
+      "eventTime": "2026-01-22T12:12:31.645872343Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3145887",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "ca7bfa8d-bb6b-3386-82a9-55d659526fd4",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMDYi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "28",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "30",
+      "eventTime": "2026-01-22T12:12:31.649551135Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3145900",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "29",
+        "identity": "21096@00170.local",
+        "requestId": "1d743054-61e0-424b-b4da-e674dc404a9f",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "31",
+      "eventTime": "2026-01-22T12:12:31.685970052Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3145901",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "29",
+        "startedEventId": "30",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "32",
+      "eventTime": "2026-01-22T12:12:31.685975010Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145902",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "33",
+      "eventTime": "2026-01-22T12:12:31.693094010Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3145909",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "32",
+        "identity": "21096@00170.local",
+        "requestId": "3e510bd5-b6ab-4f6e-9d3d-4d76c996e525",
+        "historySizeBytes": "4296"
+      }
+    },
+    {
+      "eventId": "34",
+      "eventTime": "2026-01-22T12:12:31.701738177Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3145918",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "32",
+        "startedEventId": "33",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "35",
+      "eventTime": "2026-01-22T12:12:31.701790510Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3145919",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "a23cc2dd-10ac-3bfc-b0b1-aeb59154afa3",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMDci"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "34",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "36",
+      "eventTime": "2026-01-22T12:12:31.706476427Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3145926",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "35",
+        "identity": "21096@00170.local",
+        "requestId": "a62940ba-5cf0-4e74-816b-f05e222e74c9",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "37",
+      "eventTime": "2026-01-22T12:12:31.747714552Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3145927",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "35",
+        "startedEventId": "36",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "38",
+      "eventTime": "2026-01-22T12:12:31.747720552Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145928",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "39",
+      "eventTime": "2026-01-22T12:12:31.752524885Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3145938",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "38",
+        "identity": "21096@00170.local",
+        "requestId": "393c3568-e2f3-455d-a051-f7af4f30f730",
+        "historySizeBytes": "4941"
+      }
+    },
+    {
+      "eventId": "40",
+      "eventTime": "2026-01-22T12:12:31.761328635Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3145945",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "38",
+        "startedEventId": "39",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "41",
+      "eventTime": "2026-01-22T12:12:31.761387385Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3145946",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "becdf21b-2492-35b7-90a2-f2aa1970395d",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMDA4IiwicGF5XzAwOSIsInBheV8wMTMiLCJwYXlfMDE4IiwicGF5XzAyMSJd"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "40",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "42",
+      "eventTime": "2026-01-22T12:12:31.766329218Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3145958",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "41",
+        "identity": "21096@00170.local",
+        "requestId": "0ecfb65a-6b26-4779-b1af-52c3b22f0e29",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "43",
+      "eventTime": "2026-01-22T12:12:31.830426635Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3145959",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "41",
+        "startedEventId": "42",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "44",
+      "eventTime": "2026-01-22T12:12:31.830433968Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145960",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "45",
+      "eventTime": "2026-01-22T12:12:31.836239177Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3145970",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "44",
+        "identity": "21096@00170.local",
+        "requestId": "3dbf4816-7b3a-4c10-8496-5ac2b0116399",
+        "historySizeBytes": "5627"
+      }
+    },
+    {
+      "eventId": "46",
+      "eventTime": "2026-01-22T12:12:31.848246302Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3145974",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "44",
+        "startedEventId": "45",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "47",
+      "eventTime": "2026-01-22T12:12:31.848295968Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3145975",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "2763911d-280b-3ef9-8a1b-38bd56ed7a37",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMDgi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "46",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "48",
+      "eventTime": "2026-01-22T12:12:31.855108802Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3145988",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "47",
+        "identity": "21096@00170.local",
+        "requestId": "8dce5aa3-d4a3-4e6b-9816-624e3112320b",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "49",
+      "eventTime": "2026-01-22T12:12:31.900034468Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3145989",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "47",
+        "startedEventId": "48",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "50",
+      "eventTime": "2026-01-22T12:12:31.900068635Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3145990",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "51",
+      "eventTime": "2026-01-22T12:12:31.953631802Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146005",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "50",
+        "identity": "21096@00170.local",
+        "requestId": "4b89dcbb-4821-4648-a24e-0782aa89e106",
+        "historySizeBytes": "6272"
+      }
+    },
+    {
+      "eventId": "52",
+      "eventTime": "2026-01-22T12:12:31.962388552Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146014",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "50",
+        "startedEventId": "51",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "53",
+      "eventTime": "2026-01-22T12:12:31.962442677Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146015",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "642bbfc0-2cf3-3489-aa36-95af4a1aabc2",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMDki"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "52",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "54",
+      "eventTime": "2026-01-22T12:12:32.004064427Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146022",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "53",
+        "identity": "21096@00170.local",
+        "requestId": "74a988c9-b2dd-4f7a-a4d0-ad5f244a2a2f",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "55",
+      "eventTime": "2026-01-22T12:12:32.046921302Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146023",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "53",
+        "startedEventId": "54",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "56",
+      "eventTime": "2026-01-22T12:12:32.046927302Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146024",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "57",
+      "eventTime": "2026-01-22T12:12:32.052314469Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146034",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "56",
+        "identity": "21096@00170.local",
+        "requestId": "a96d2b1a-05d7-4a04-8e65-24babc066fa6",
+        "historySizeBytes": "6914"
+      }
+    },
+    {
+      "eventId": "58",
+      "eventTime": "2026-01-22T12:12:32.057922219Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146038",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "56",
+        "startedEventId": "57",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "59",
+      "eventTime": "2026-01-22T12:12:32.057965927Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146039",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "5d54bbff-2dab-3e1c-a0a7-feb07cda4039",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMTMi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "58",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "60",
+      "eventTime": "2026-01-22T12:12:33.119821511Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146074",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "59",
+        "identity": "21096@00170.local",
+        "requestId": "f7f842b7-c48a-433a-89d3-9c45c407028c",
+        "attempt": 2,
+        "lastFailure": {
+          "message": "PGI gateway call failed for payment pay_013 on gateway adyen: HTTP 500 INTERNAL_SERVER_ERROR",
+          "source": "JavaSDK",
+          "stackTrace": "com.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway$lambda$0(PaymentGatewayActivities.kt:69)\norg.springframework.web.client.StatusHandler.handle(StatusHandler.java:75)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.applyStatusHandlers(DefaultRestClient.java:915)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$toBodilessEntity$0(DefaultRestClient.java:862)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:612)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:567)\norg.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:750)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:896)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:860)\ncom.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway(PaymentGatewayActivities.kt:71)\njava.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\njava.base/java.lang.reflect.Method.invoke(Method.java:565)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor$POJOActivityInboundCallsInterceptor.executeActivity(RootActivityInboundCallsInterceptor.java:44)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor.execute(RootActivityInboundCallsInterceptor.java:23)\nio.temporal.internal.activity.ActivityTaskExecutors$BaseActivityTaskExecutor.execute(ActivityTaskExecutors.java:88)\nio.temporal.internal.activity.ActivityTaskHandlerImpl.handle(ActivityTaskHandlerImpl.java:105)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handleActivity(ActivityWorker.java:294)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:258)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:221)\nio.temporal.internal.worker.PollTaskExecutor.lambda$process$1(PollTaskExecutor.java:76)\njava.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)\njava.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\njava.base/java.lang.Thread.run(Thread.java:1474)\n",
+          "applicationFailureInfo": {
+            "type": "com.example.paymentact.exception.PgiGatewayException"
+          }
+        },
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "61",
+      "eventTime": "2026-01-22T12:12:33.169946677Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146075",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "59",
+        "startedEventId": "60",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "62",
+      "eventTime": "2026-01-22T12:12:33.169959469Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146076",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "63",
+      "eventTime": "2026-01-22T12:12:33.179736094Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146080",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "62",
+        "identity": "21096@00170.local",
+        "requestId": "c07cb1cc-6a91-4a4c-9043-7504d8af6ee0",
+        "historySizeBytes": "10064"
+      }
+    },
+    {
+      "eventId": "64",
+      "eventTime": "2026-01-22T12:12:33.186935844Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146084",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "62",
+        "startedEventId": "63",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "65",
+      "eventTime": "2026-01-22T12:12:33.187026594Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146085",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "94337c09-90ec-3c23-a87c-bfa3a5a9bc3a",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMTgi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "64",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "66",
+      "eventTime": "2026-01-22T12:12:33.190783636Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146090",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "65",
+        "identity": "21096@00170.local",
+        "requestId": "288b986b-fdfc-4f75-af70-e10c479a574e",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "67",
+      "eventTime": "2026-01-22T12:12:33.231905594Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146091",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "65",
+        "startedEventId": "66",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "68",
+      "eventTime": "2026-01-22T12:12:33.231915011Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146092",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "69",
+      "eventTime": "2026-01-22T12:12:33.236097136Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146096",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "68",
+        "identity": "21096@00170.local",
+        "requestId": "a8145827-73f1-48d0-8a5e-a3a3704275e3",
+        "historySizeBytes": "10703"
+      }
+    },
+    {
+      "eventId": "70",
+      "eventTime": "2026-01-22T12:12:33.243660011Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146100",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "68",
+        "startedEventId": "69",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "71",
+      "eventTime": "2026-01-22T12:12:33.243729636Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146101",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "6fb74ce8-52e9-3544-b2a3-81a5697ea5eb",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMjEi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "70",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "72",
+      "eventTime": "2026-01-22T12:12:33.247689261Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146108",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "71",
+        "identity": "21096@00170.local",
+        "requestId": "22034b82-361f-4c94-8d09-fa188ea18de0",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "73",
+      "eventTime": "2026-01-22T12:12:33.287703761Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146109",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "71",
+        "startedEventId": "72",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "74",
+      "eventTime": "2026-01-22T12:12:33.287710552Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146110",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "75",
+      "eventTime": "2026-01-22T12:12:33.291358386Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146114",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "74",
+        "identity": "21096@00170.local",
+        "requestId": "9cf29e27-2f1e-47be-8efa-270ac5bf695e",
+        "historySizeBytes": "11344"
+      }
+    },
+    {
+      "eventId": "76",
+      "eventTime": "2026-01-22T12:12:33.298895386Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146118",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "74",
+        "startedEventId": "75",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "77",
+      "eventTime": "2026-01-22T12:12:33.298943886Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146119",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "c6dde608-ed4d-372b-908d-7aa710d2f759",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMDMxIiwicGF5XzAzMiIsInBheV8wMzQiLCJwYXlfMDM2IiwicGF5XzAzNyJd"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "76",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "78",
+      "eventTime": "2026-01-22T12:12:33.301917552Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146146",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "77",
+        "identity": "21096@00170.local",
+        "requestId": "6253a3a9-0f8d-4015-ae69-2cbe1a58e5aa",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "79",
+      "eventTime": "2026-01-22T12:12:33.361608052Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146147",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "77",
+        "startedEventId": "78",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "80",
+      "eventTime": "2026-01-22T12:12:33.361617261Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146148",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "81",
+      "eventTime": "2026-01-22T12:12:33.372407386Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146155",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "80",
+        "identity": "21096@00170.local",
+        "requestId": "c9731a31-e2d3-4f96-ad1b-f79691f75f8b",
+        "historySizeBytes": "12030"
+      }
+    },
+    {
+      "eventId": "82",
+      "eventTime": "2026-01-22T12:12:33.389006136Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146164",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "80",
+        "startedEventId": "81",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "83",
+      "eventTime": "2026-01-22T12:12:33.389094136Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146165",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "e88bd9ff-3760-3836-85ea-dcb304cf9fd1",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMzEi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "82",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "84",
+      "eventTime": "2026-01-22T12:12:33.398934052Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146172",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "83",
+        "identity": "21096@00170.local",
+        "requestId": "e29518ca-2403-4692-925d-2babeecefa79",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "85",
+      "eventTime": "2026-01-22T12:12:33.440484761Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146173",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "83",
+        "startedEventId": "84",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "86",
+      "eventTime": "2026-01-22T12:12:33.440490594Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146174",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "87",
+      "eventTime": "2026-01-22T12:12:33.445806844Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146178",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "86",
+        "identity": "21096@00170.local",
+        "requestId": "57aba21f-9d6f-4089-8a0c-373d0553b111",
+        "historySizeBytes": "12675"
+      }
+    },
+    {
+      "eventId": "88",
+      "eventTime": "2026-01-22T12:12:33.450909969Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146182",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "86",
+        "startedEventId": "87",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "89",
+      "eventTime": "2026-01-22T12:12:33.450988969Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146183",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "764d7ddb-4099-33ee-abaa-4d94fa3039ae",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMzIi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "88",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "90",
+      "eventTime": "2026-01-22T12:12:33.455892594Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146205",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "89",
+        "identity": "21096@00170.local",
+        "requestId": "425f1bf6-0ffb-4110-bb52-b4a40ae71285",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "91",
+      "eventTime": "2026-01-22T12:12:33.494170386Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146206",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "89",
+        "startedEventId": "90",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "92",
+      "eventTime": "2026-01-22T12:12:33.494179469Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146207",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "93",
+      "eventTime": "2026-01-22T12:12:33.498257178Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146211",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "92",
+        "identity": "21096@00170.local",
+        "requestId": "6f40dfcf-f633-4a46-af7b-280b06a537df",
+        "historySizeBytes": "13320"
+      }
+    },
+    {
+      "eventId": "94",
+      "eventTime": "2026-01-22T12:12:33.504116928Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146215",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "92",
+        "startedEventId": "93",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "95",
+      "eventTime": "2026-01-22T12:12:33.504169011Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146216",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "c1c07522-c556-3e15-aa4a-d02983f63375",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMzQi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "94",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "96",
+      "eventTime": "2026-01-22T12:12:33.508890678Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146221",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "95",
+        "identity": "21096@00170.local",
+        "requestId": "d7d43c83-d833-49a5-8ca8-0fa7ecb4da1e",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "97",
+      "eventTime": "2026-01-22T12:12:33.546043636Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146222",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "95",
+        "startedEventId": "96",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "98",
+      "eventTime": "2026-01-22T12:12:33.546062803Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146223",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "99",
+      "eventTime": "2026-01-22T12:12:33.550630178Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146227",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "98",
+        "identity": "21096@00170.local",
+        "requestId": "c52bfaba-96db-4571-96ba-fcf725b77846",
+        "historySizeBytes": "13965"
+      }
+    },
+    {
+      "eventId": "100",
+      "eventTime": "2026-01-22T12:12:33.555501678Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146231",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "98",
+        "startedEventId": "99",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "101",
+      "eventTime": "2026-01-22T12:12:33.555550136Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146232",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "2b863688-c3e9-3910-b418-bdfb5b89aa69",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMzYi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "100",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "102",
+      "eventTime": "2026-01-22T12:12:33.558660761Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146237",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "101",
+        "identity": "21096@00170.local",
+        "requestId": "73fc37f4-ba71-4c46-a2fc-eb70b23bf56b",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "103",
+      "eventTime": "2026-01-22T12:12:33.594879678Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146238",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "101",
+        "startedEventId": "102",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "104",
+      "eventTime": "2026-01-22T12:12:33.594887261Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146239",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "105",
+      "eventTime": "2026-01-22T12:12:33.599062636Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146243",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "104",
+        "identity": "21096@00170.local",
+        "requestId": "a6a41ef5-1b28-4b1e-bf08-9e53266c8e1e",
+        "historySizeBytes": "14610"
+      }
+    },
+    {
+      "eventId": "106",
+      "eventTime": "2026-01-22T12:12:33.605838803Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146247",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "104",
+        "startedEventId": "105",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "107",
+      "eventTime": "2026-01-22T12:12:33.605918594Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146248",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "2665aff0-40bc-30e1-a661-29bee712450e",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wMzci"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "106",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "108",
+      "eventTime": "2026-01-22T12:12:33.610264678Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146253",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "107",
+        "identity": "21096@00170.local",
+        "requestId": "97239c8b-7860-4724-9370-c019d103460b",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "109",
+      "eventTime": "2026-01-22T12:12:33.650809136Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146254",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "107",
+        "startedEventId": "108",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "110",
+      "eventTime": "2026-01-22T12:12:33.650816094Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146255",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "111",
+      "eventTime": "2026-01-22T12:12:33.656073053Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146259",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "110",
+        "identity": "21096@00170.local",
+        "requestId": "83d81f10-aaa5-4ef5-b833-ce74c47b35b0",
+        "historySizeBytes": "15255"
+      }
+    },
+    {
+      "eventId": "112",
+      "eventTime": "2026-01-22T12:12:33.661800761Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146263",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "110",
+        "startedEventId": "111",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "113",
+      "eventTime": "2026-01-22T12:12:33.661870886Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146264",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "4b65b2d9-a098-3041-b307-2b23c8f5fca5",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMDQwIiwicGF5XzA0MiIsInBheV8wNDUiLCJwYXlfMDUxIiwicGF5XzA1MiJd"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "112",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "114",
+      "eventTime": "2026-01-22T12:12:33.665588386Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146269",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "113",
+        "identity": "21096@00170.local",
+        "requestId": "ba4e02b1-78a7-4bda-851e-c1ceb713f387",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "115",
+      "eventTime": "2026-01-22T12:12:33.722113261Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146270",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "113",
+        "startedEventId": "114",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "116",
+      "eventTime": "2026-01-22T12:12:33.722118303Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146271",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "117",
+      "eventTime": "2026-01-22T12:12:33.726551803Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146275",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "116",
+        "identity": "21096@00170.local",
+        "requestId": "d3cd654a-fd96-410b-9491-cc1c1eff4615",
+        "historySizeBytes": "15941"
+      }
+    },
+    {
+      "eventId": "118",
+      "eventTime": "2026-01-22T12:12:33.731382261Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146279",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "116",
+        "startedEventId": "117",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "119",
+      "eventTime": "2026-01-22T12:12:33.731411844Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146280",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "a0001daa-0ebf-3d81-af0a-451d42406e0d",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNDAi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "118",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "120",
+      "eventTime": "2026-01-22T12:12:33.735742178Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146285",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "119",
+        "identity": "21096@00170.local",
+        "requestId": "de5792af-38fa-4b82-af82-b46dc34945fa",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "121",
+      "eventTime": "2026-01-22T12:12:33.771588969Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146286",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "119",
+        "startedEventId": "120",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "122",
+      "eventTime": "2026-01-22T12:12:33.771596428Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146287",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "123",
+      "eventTime": "2026-01-22T12:12:33.777601719Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146291",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "122",
+        "identity": "21096@00170.local",
+        "requestId": "18e6932b-1f31-4f1a-84de-c008be9bb753",
+        "historySizeBytes": "16586"
+      }
+    },
+    {
+      "eventId": "124",
+      "eventTime": "2026-01-22T12:12:33.783528761Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146295",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "122",
+        "startedEventId": "123",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "125",
+      "eventTime": "2026-01-22T12:12:33.783558844Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146296",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "6ef0115f-c1db-3feb-b610-f15f9c00f853",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNDIi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "124",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "126",
+      "eventTime": "2026-01-22T12:12:33.787658636Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146301",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "125",
+        "identity": "21096@00170.local",
+        "requestId": "0da556de-6366-46b6-a7f5-62dbd68144cb",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "127",
+      "eventTime": "2026-01-22T12:12:33.826952678Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146302",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "125",
+        "startedEventId": "126",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "128",
+      "eventTime": "2026-01-22T12:12:33.826958344Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146303",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "129",
+      "eventTime": "2026-01-22T12:12:33.831839636Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146307",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "128",
+        "identity": "21096@00170.local",
+        "requestId": "69d9d600-f2d3-4e4a-93e0-c679d1ff6374",
+        "historySizeBytes": "17233"
+      }
+    },
+    {
+      "eventId": "130",
+      "eventTime": "2026-01-22T12:12:33.838968636Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146311",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "128",
+        "startedEventId": "129",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "131",
+      "eventTime": "2026-01-22T12:12:33.839017761Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146312",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "32449b9a-4cda-3e5b-b1bd-1c75690b08a0",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNDUi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "130",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "132",
+      "eventTime": "2026-01-22T12:12:33.843867553Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146317",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "131",
+        "identity": "21096@00170.local",
+        "requestId": "c1edfabb-0e4e-4717-a3d0-767f34436968",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "133",
+      "eventTime": "2026-01-22T12:12:33.883952969Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146318",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "131",
+        "startedEventId": "132",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "134",
+      "eventTime": "2026-01-22T12:12:33.883962803Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146319",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "135",
+      "eventTime": "2026-01-22T12:12:33.888070719Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146323",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "134",
+        "identity": "21096@00170.local",
+        "requestId": "83a33f06-19d2-48ef-8c36-0fcfe7025a87",
+        "historySizeBytes": "17892"
+      }
+    },
+    {
+      "eventId": "136",
+      "eventTime": "2026-01-22T12:12:33.892536594Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146327",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "134",
+        "startedEventId": "135",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "137",
+      "eventTime": "2026-01-22T12:12:33.892579844Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146328",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "1a00f730-bd72-3a7d-b25f-a5d0df4fe898",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNTEi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "136",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "138",
+      "eventTime": "2026-01-22T12:12:33.902855136Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146333",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "137",
+        "identity": "21096@00170.local",
+        "requestId": "20bb0593-9be5-49d7-8319-6c89ef3e464c",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "139",
+      "eventTime": "2026-01-22T12:12:33.943840344Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146334",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "137",
+        "startedEventId": "138",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "140",
+      "eventTime": "2026-01-22T12:12:33.943846261Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146335",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "141",
+      "eventTime": "2026-01-22T12:12:33.951882636Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146339",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "140",
+        "identity": "21096@00170.local",
+        "requestId": "e3c89a77-a808-4c0d-aa3b-469f61067a44",
+        "historySizeBytes": "18551"
+      }
+    },
+    {
+      "eventId": "142",
+      "eventTime": "2026-01-22T12:12:33.956417928Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146343",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "140",
+        "startedEventId": "141",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "143",
+      "eventTime": "2026-01-22T12:12:33.956474219Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146344",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "a2d799a7-24bf-336c-ad8d-f04757a4029e",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNTIi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "142",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "144",
+      "eventTime": "2026-01-22T12:12:34.002143594Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146349",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "143",
+        "identity": "21096@00170.local",
+        "requestId": "fcfb2a38-4872-49ba-9e85-1f9a7a81161d",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "145",
+      "eventTime": "2026-01-22T12:12:34.044519844Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146350",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "143",
+        "startedEventId": "144",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "146",
+      "eventTime": "2026-01-22T12:12:34.044528511Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146351",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "147",
+      "eventTime": "2026-01-22T12:12:34.052771719Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146355",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "146",
+        "identity": "21096@00170.local",
+        "requestId": "043b8d95-721f-4273-85b1-317f2be53dc7",
+        "historySizeBytes": "19207"
+      }
+    },
+    {
+      "eventId": "148",
+      "eventTime": "2026-01-22T12:12:34.059602053Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146359",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "146",
+        "startedEventId": "147",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "149",
+      "eventTime": "2026-01-22T12:12:34.059638678Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146360",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "c1ee1b24-ebc8-3782-a712-d2c628a55f40",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMDUzIiwicGF5XzA1NiIsInBheV8wNTciLCJwYXlfMDU5IiwicGF5XzA2NSJd"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "148",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "150",
+      "eventTime": "2026-01-22T12:12:34.104037261Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146365",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "149",
+        "identity": "21096@00170.local",
+        "requestId": "ed34a5c9-30ad-4ab4-8c4c-5afb2cca59bf",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "151",
+      "eventTime": "2026-01-22T12:12:34.165910970Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146366",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "149",
+        "startedEventId": "150",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "152",
+      "eventTime": "2026-01-22T12:12:34.165918761Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146367",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "153",
+      "eventTime": "2026-01-22T12:12:34.170122011Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146371",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "152",
+        "identity": "21096@00170.local",
+        "requestId": "8e2a08b6-32c5-4e46-ab33-6b2236c4dfab",
+        "historySizeBytes": "19901"
+      }
+    },
+    {
+      "eventId": "154",
+      "eventTime": "2026-01-22T12:12:34.176573511Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146375",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "152",
+        "startedEventId": "153",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "155",
+      "eventTime": "2026-01-22T12:12:34.176621386Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146376",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "0aaa5df1-2ead-3b99-9f4b-ff4c887a1b5c",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNTMi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "154",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "156",
+      "eventTime": "2026-01-22T12:12:34.208291428Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146381",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "155",
+        "identity": "21096@00170.local",
+        "requestId": "e469fb6d-1bb5-430d-8dd2-84b80925ed12",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "157",
+      "eventTime": "2026-01-22T12:12:34.250947511Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146382",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "155",
+        "startedEventId": "156",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "158",
+      "eventTime": "2026-01-22T12:12:34.250954261Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146383",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "159",
+      "eventTime": "2026-01-22T12:12:34.255829928Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146387",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "158",
+        "identity": "21096@00170.local",
+        "requestId": "7c77dfb0-abc8-4f7e-b876-b77c4041b7f1",
+        "historySizeBytes": "20554"
+      }
+    },
+    {
+      "eventId": "160",
+      "eventTime": "2026-01-22T12:12:34.262464470Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146391",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "158",
+        "startedEventId": "159",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "161",
+      "eventTime": "2026-01-22T12:12:34.262523095Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146392",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "6f4ac125-5d82-3297-9e8e-6d72364ad6d4",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNTYi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "160",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "162",
+      "eventTime": "2026-01-22T12:12:35.311492595Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146483",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "161",
+        "identity": "21096@00170.local",
+        "requestId": "12e8107f-1376-4952-93c1-b254ecbeca6c",
+        "attempt": 2,
+        "lastFailure": {
+          "message": "PGI gateway call failed for payment pay_056 on gateway adyen: HTTP 500 INTERNAL_SERVER_ERROR",
+          "source": "JavaSDK",
+          "stackTrace": "com.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway$lambda$0(PaymentGatewayActivities.kt:69)\norg.springframework.web.client.StatusHandler.handle(StatusHandler.java:75)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.applyStatusHandlers(DefaultRestClient.java:915)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$toBodilessEntity$0(DefaultRestClient.java:862)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:612)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:567)\norg.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:750)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:896)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:860)\ncom.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway(PaymentGatewayActivities.kt:71)\njava.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\njava.base/java.lang.reflect.Method.invoke(Method.java:565)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor$POJOActivityInboundCallsInterceptor.executeActivity(RootActivityInboundCallsInterceptor.java:44)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor.execute(RootActivityInboundCallsInterceptor.java:23)\nio.temporal.internal.activity.ActivityTaskExecutors$BaseActivityTaskExecutor.execute(ActivityTaskExecutors.java:88)\nio.temporal.internal.activity.ActivityTaskHandlerImpl.handle(ActivityTaskHandlerImpl.java:105)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handleActivity(ActivityWorker.java:294)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:258)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:221)\nio.temporal.internal.worker.PollTaskExecutor.lambda$process$1(PollTaskExecutor.java:76)\njava.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)\njava.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\njava.base/java.lang.Thread.run(Thread.java:1474)\n",
+          "applicationFailureInfo": {
+            "type": "com.example.paymentact.exception.PgiGatewayException"
+          }
+        },
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "163",
+      "eventTime": "2026-01-22T12:12:35.351263512Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146484",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "161",
+        "startedEventId": "162",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "164",
+      "eventTime": "2026-01-22T12:12:35.351273553Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146485",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "165",
+      "eventTime": "2026-01-22T12:12:35.356020137Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146489",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "164",
+        "identity": "21096@00170.local",
+        "requestId": "5ce011c6-8219-464f-9fa0-b23d576b29f6",
+        "historySizeBytes": "23721"
+      }
+    },
+    {
+      "eventId": "166",
+      "eventTime": "2026-01-22T12:12:35.361698345Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146493",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "164",
+        "startedEventId": "165",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "167",
+      "eventTime": "2026-01-22T12:12:35.361711012Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146494",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "b8d67e0f-2338-3090-a131-9b9639cce01f",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNTci"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "166",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "168",
+      "eventTime": "2026-01-22T12:12:36.380222054Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146585",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "167",
+        "identity": "21096@00170.local",
+        "requestId": "2a0ac969-69c1-4dda-8ed5-2aed3beda200",
+        "attempt": 2,
+        "lastFailure": {
+          "message": "PGI gateway call failed for payment pay_057 on gateway adyen: HTTP 500 INTERNAL_SERVER_ERROR",
+          "source": "JavaSDK",
+          "stackTrace": "com.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway$lambda$0(PaymentGatewayActivities.kt:69)\norg.springframework.web.client.StatusHandler.handle(StatusHandler.java:75)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.applyStatusHandlers(DefaultRestClient.java:915)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$toBodilessEntity$0(DefaultRestClient.java:862)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:612)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:567)\norg.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:750)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:896)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:860)\ncom.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway(PaymentGatewayActivities.kt:71)\njava.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\njava.base/java.lang.reflect.Method.invoke(Method.java:565)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor$POJOActivityInboundCallsInterceptor.executeActivity(RootActivityInboundCallsInterceptor.java:44)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor.execute(RootActivityInboundCallsInterceptor.java:23)\nio.temporal.internal.activity.ActivityTaskExecutors$BaseActivityTaskExecutor.execute(ActivityTaskExecutors.java:88)\nio.temporal.internal.activity.ActivityTaskHandlerImpl.handle(ActivityTaskHandlerImpl.java:105)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handleActivity(ActivityWorker.java:294)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:258)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:221)\nio.temporal.internal.worker.PollTaskExecutor.lambda$process$1(PollTaskExecutor.java:76)\njava.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)\njava.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\njava.base/java.lang.Thread.run(Thread.java:1474)\n",
+          "applicationFailureInfo": {
+            "type": "com.example.paymentact.exception.PgiGatewayException"
+          }
+        },
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "169",
+      "eventTime": "2026-01-22T12:12:36.426437846Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146586",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "167",
+        "startedEventId": "168",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "170",
+      "eventTime": "2026-01-22T12:12:36.426444387Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146587",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "171",
+      "eventTime": "2026-01-22T12:12:36.431145054Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146591",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "170",
+        "identity": "21096@00170.local",
+        "requestId": "1e127d5e-bbe7-448e-987b-e2627d8bced5",
+        "historySizeBytes": "26891"
+      }
+    },
+    {
+      "eventId": "172",
+      "eventTime": "2026-01-22T12:12:36.437540721Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146595",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "170",
+        "startedEventId": "171",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "173",
+      "eventTime": "2026-01-22T12:12:36.437588262Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146596",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "fae0afb5-de75-3d40-b59f-bd789d2654a6",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNTki"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "172",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "174",
+      "eventTime": "2026-01-22T12:12:39.480716389Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146772",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "173",
+        "identity": "21096@00170.local",
+        "requestId": "f924a851-66a2-4396-a3c5-1781d7127123",
+        "attempt": 3,
+        "lastFailure": {
+          "message": "PGI gateway call failed for payment pay_059 on gateway adyen: HTTP 500 INTERNAL_SERVER_ERROR",
+          "source": "JavaSDK",
+          "stackTrace": "com.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway$lambda$0(PaymentGatewayActivities.kt:69)\norg.springframework.web.client.StatusHandler.handle(StatusHandler.java:75)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.applyStatusHandlers(DefaultRestClient.java:915)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$toBodilessEntity$0(DefaultRestClient.java:862)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:612)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:567)\norg.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:750)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:896)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:860)\ncom.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway(PaymentGatewayActivities.kt:71)\njava.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\njava.base/java.lang.reflect.Method.invoke(Method.java:565)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor$POJOActivityInboundCallsInterceptor.executeActivity(RootActivityInboundCallsInterceptor.java:44)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor.execute(RootActivityInboundCallsInterceptor.java:23)\nio.temporal.internal.activity.ActivityTaskExecutors$BaseActivityTaskExecutor.execute(ActivityTaskExecutors.java:88)\nio.temporal.internal.activity.ActivityTaskHandlerImpl.handle(ActivityTaskHandlerImpl.java:105)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handleActivity(ActivityWorker.java:294)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:258)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:221)\nio.temporal.internal.worker.PollTaskExecutor.lambda$process$1(PollTaskExecutor.java:76)\njava.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)\njava.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\njava.base/java.lang.Thread.run(Thread.java:1474)\n",
+          "applicationFailureInfo": {
+            "type": "com.example.paymentact.exception.PgiGatewayException"
+          }
+        },
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "175",
+      "eventTime": "2026-01-22T12:12:39.493061555Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_FAILED",
+      "taskId": "3146773",
+      "activityTaskFailedEventAttributes": {
+        "failure": {
+          "message": "PGI gateway call failed for payment pay_059 on gateway adyen: HTTP 500 INTERNAL_SERVER_ERROR",
+          "source": "JavaSDK",
+          "stackTrace": "com.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway$lambda$0(PaymentGatewayActivities.kt:69)\norg.springframework.web.client.StatusHandler.handle(StatusHandler.java:75)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.applyStatusHandlers(DefaultRestClient.java:915)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.lambda$toBodilessEntity$0(DefaultRestClient.java:862)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchangeInternal(DefaultRestClient.java:612)\norg.springframework.web.client.DefaultRestClient$DefaultRequestBodyUriSpec.exchange(DefaultRestClient.java:567)\norg.springframework.web.client.RestClient$RequestHeadersSpec.exchange(RestClient.java:750)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.executeAndExtract(DefaultRestClient.java:896)\norg.springframework.web.client.DefaultRestClient$DefaultResponseSpec.toBodilessEntity(DefaultRestClient.java:860)\ncom.example.paymentact.activity.PaymentGatewayActivitiesImpl.callPgiGateway(PaymentGatewayActivities.kt:71)\njava.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\njava.base/java.lang.reflect.Method.invoke(Method.java:565)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor$POJOActivityInboundCallsInterceptor.executeActivity(RootActivityInboundCallsInterceptor.java:44)\nio.temporal.internal.activity.RootActivityInboundCallsInterceptor.execute(RootActivityInboundCallsInterceptor.java:23)\nio.temporal.internal.activity.ActivityTaskExecutors$BaseActivityTaskExecutor.execute(ActivityTaskExecutors.java:88)\nio.temporal.internal.activity.ActivityTaskHandlerImpl.handle(ActivityTaskHandlerImpl.java:105)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handleActivity(ActivityWorker.java:294)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:258)\nio.temporal.internal.worker.ActivityWorker$TaskHandlerImpl.handle(ActivityWorker.java:221)\nio.temporal.internal.worker.PollTaskExecutor.lambda$process$1(PollTaskExecutor.java:76)\njava.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)\njava.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\njava.base/java.lang.Thread.run(Thread.java:1474)\n",
+          "applicationFailureInfo": {
+            "type": "com.example.paymentact.exception.PgiGatewayException"
+          }
+        },
+        "scheduledEventId": "173",
+        "startedEventId": "174",
+        "identity": "21096@00170.local",
+        "retryState": "RETRY_STATE_MAXIMUM_ATTEMPTS_REACHED"
+      }
+    },
+    {
+      "eventId": "176",
+      "eventTime": "2026-01-22T12:12:39.493108014Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146774",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "177",
+      "eventTime": "2026-01-22T12:12:39.496976430Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146778",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "176",
+        "identity": "21096@00170.local",
+        "requestId": "6637a2c2-5159-469b-bca3-064a679859a5",
+        "historySizeBytes": "32574"
+      }
+    },
+    {
+      "eventId": "178",
+      "eventTime": "2026-01-22T12:12:39.512285555Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146782",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "176",
+        "startedEventId": "177",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "179",
+      "eventTime": "2026-01-22T12:12:39.512341097Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146783",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "2e4a4c3b-48c0-39e7-b6a4-676a349db902",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNjUi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "178",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "180",
+      "eventTime": "2026-01-22T12:12:39.516609389Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146788",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "179",
+        "identity": "21096@00170.local",
+        "requestId": "31cf8610-08ab-47ea-9489-e48f8b4b1613",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "181",
+      "eventTime": "2026-01-22T12:12:39.554913805Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146789",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "179",
+        "startedEventId": "180",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "182",
+      "eventTime": "2026-01-22T12:12:39.554920014Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146790",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "183",
+      "eventTime": "2026-01-22T12:12:39.558777764Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146794",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "182",
+        "identity": "21096@00170.local",
+        "requestId": "bfd0e941-70bf-4ab0-bd90-a774219306e0",
+        "historySizeBytes": "33233"
+      }
+    },
+    {
+      "eventId": "184",
+      "eventTime": "2026-01-22T12:12:39.565433847Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146798",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "182",
+        "startedEventId": "183",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "185",
+      "eventTime": "2026-01-22T12:12:39.565501472Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146799",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "b72ef309-f5e1-3760-9ad3-035d51522b5c",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMDY2IiwicGF5XzA2NyIsInBheV8wNzIiLCJwYXlfMDczIiwicGF5XzA3NCJd"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "184",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "186",
+      "eventTime": "2026-01-22T12:12:39.569391139Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146804",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "185",
+        "identity": "21096@00170.local",
+        "requestId": "2e4180f8-783c-4f7d-b8aa-b8102d51abe4",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "187",
+      "eventTime": "2026-01-22T12:12:39.629274389Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146805",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "185",
+        "startedEventId": "186",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "188",
+      "eventTime": "2026-01-22T12:12:39.629280347Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146806",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "189",
+      "eventTime": "2026-01-22T12:12:39.634092639Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146810",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "188",
+        "identity": "21096@00170.local",
+        "requestId": "dfa7b3af-a21a-4cf7-aae4-82c414119650",
+        "historySizeBytes": "33933"
+      }
+    },
+    {
+      "eventId": "190",
+      "eventTime": "2026-01-22T12:12:39.642302180Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146814",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "188",
+        "startedEventId": "189",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "191",
+      "eventTime": "2026-01-22T12:12:39.642372680Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146815",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "b99b4131-8f87-3135-9d94-f7b3b76f4f6f",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNjYi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "190",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "192",
+      "eventTime": "2026-01-22T12:12:39.646663597Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146820",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "191",
+        "identity": "21096@00170.local",
+        "requestId": "1a9e6398-2a8d-4c16-af61-5d45d22ab587",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "193",
+      "eventTime": "2026-01-22T12:12:39.689496875Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146821",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "191",
+        "startedEventId": "192",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "194",
+      "eventTime": "2026-01-22T12:12:39.689503208Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146822",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "195",
+      "eventTime": "2026-01-22T12:12:39.693685375Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146826",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "194",
+        "identity": "21096@00170.local",
+        "requestId": "1109631b-dabe-4569-90a5-9575b2e009b8",
+        "historySizeBytes": "34592"
+      }
+    },
+    {
+      "eventId": "196",
+      "eventTime": "2026-01-22T12:12:39.701883666Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146830",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "194",
+        "startedEventId": "195",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "197",
+      "eventTime": "2026-01-22T12:12:39.701934333Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146831",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "2664d00c-a7a8-3cc7-88d6-746c30a1e162",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNjci"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "196",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "198",
+      "eventTime": "2026-01-22T12:12:39.706899041Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146836",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "197",
+        "identity": "21096@00170.local",
+        "requestId": "f60e5d4a-1ea4-4128-acbf-3a10c8ecf120",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "199",
+      "eventTime": "2026-01-22T12:12:39.745650333Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146837",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "197",
+        "startedEventId": "198",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "200",
+      "eventTime": "2026-01-22T12:12:39.745659750Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146838",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "201",
+      "eventTime": "2026-01-22T12:12:39.751843041Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146842",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "200",
+        "identity": "21096@00170.local",
+        "requestId": "5dcc4474-d912-49ce-8db1-935e23892270",
+        "historySizeBytes": "35251"
+      }
+    },
+    {
+      "eventId": "202",
+      "eventTime": "2026-01-22T12:12:39.758138916Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146846",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "200",
+        "startedEventId": "201",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "203",
+      "eventTime": "2026-01-22T12:12:39.758185125Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146847",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "5e1f88fd-d31a-3537-b37e-a446bb42e390",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNzIi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "202",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "204",
+      "eventTime": "2026-01-22T12:12:39.762771583Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146852",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "203",
+        "identity": "21096@00170.local",
+        "requestId": "64c3ef34-a263-48d3-9783-e7c735892347",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "205",
+      "eventTime": "2026-01-22T12:12:39.804001208Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146853",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "203",
+        "startedEventId": "204",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "206",
+      "eventTime": "2026-01-22T12:12:39.804008083Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146854",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "207",
+      "eventTime": "2026-01-22T12:12:39.808701208Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146858",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "206",
+        "identity": "21096@00170.local",
+        "requestId": "e29ba5ac-66ad-45c6-8e36-187e5425e84b",
+        "historySizeBytes": "35910"
+      }
+    },
+    {
+      "eventId": "208",
+      "eventTime": "2026-01-22T12:12:39.814572666Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146862",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "206",
+        "startedEventId": "207",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "209",
+      "eventTime": "2026-01-22T12:12:39.814621208Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146863",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "96b38d97-bfb9-39c9-a92e-45d57101855e",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNzMi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "208",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "210",
+      "eventTime": "2026-01-22T12:12:39.819162333Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146868",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "209",
+        "identity": "21096@00170.local",
+        "requestId": "e83a525a-8a94-461b-bb5a-ce5e90d017c5",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "211",
+      "eventTime": "2026-01-22T12:12:39.854694708Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146869",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "209",
+        "startedEventId": "210",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "212",
+      "eventTime": "2026-01-22T12:12:39.854700916Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146870",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "213",
+      "eventTime": "2026-01-22T12:12:39.858646Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146874",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "212",
+        "identity": "21096@00170.local",
+        "requestId": "076506c1-ee1f-448e-b282-ded4648c25a7",
+        "historySizeBytes": "36569"
+      }
+    },
+    {
+      "eventId": "214",
+      "eventTime": "2026-01-22T12:12:39.862757750Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146878",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "212",
+        "startedEventId": "213",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "215",
+      "eventTime": "2026-01-22T12:12:39.862800666Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146879",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "8af265dc-21b9-3512-89df-427f6c4450aa",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNzQi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "214",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "216",
+      "eventTime": "2026-01-22T12:12:39.865729666Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146884",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "215",
+        "identity": "21096@00170.local",
+        "requestId": "99fba3fa-79e7-4fe2-a4eb-ec8d474cc31e",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "217",
+      "eventTime": "2026-01-22T12:12:39.903495958Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146885",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "215",
+        "startedEventId": "216",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "218",
+      "eventTime": "2026-01-22T12:12:39.903502333Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146886",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "219",
+      "eventTime": "2026-01-22T12:12:39.909001541Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146890",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "218",
+        "identity": "21096@00170.local",
+        "requestId": "41bfc4f5-66b0-4c7e-aa7e-6993896ef714",
+        "historySizeBytes": "37228"
+      }
+    },
+    {
+      "eventId": "220",
+      "eventTime": "2026-01-22T12:12:39.913759708Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146894",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "218",
+        "startedEventId": "219",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "221",
+      "eventTime": "2026-01-22T12:12:39.913835291Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146895",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "498d2fdb-ea6b-306c-a1e9-72874853e099",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMDc1IiwicGF5XzA3OSIsInBheV8wODEiLCJwYXlfMDgyIiwicGF5XzA4NSJd"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "220",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "222",
+      "eventTime": "2026-01-22T12:12:39.918803875Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146900",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "221",
+        "identity": "21096@00170.local",
+        "requestId": "112a8e6a-ca78-464e-9b87-38d971f09cdc",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "223",
+      "eventTime": "2026-01-22T12:12:39.977616375Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146901",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "221",
+        "startedEventId": "222",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "224",
+      "eventTime": "2026-01-22T12:12:39.977624500Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146902",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "225",
+      "eventTime": "2026-01-22T12:12:39.983134375Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146906",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "224",
+        "identity": "21096@00170.local",
+        "requestId": "073bd7d0-da53-4be5-9228-3bbcc2933c03",
+        "historySizeBytes": "37928"
+      }
+    },
+    {
+      "eventId": "226",
+      "eventTime": "2026-01-22T12:12:39.989429500Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146910",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "224",
+        "startedEventId": "225",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "227",
+      "eventTime": "2026-01-22T12:12:39.989477458Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146911",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "b9f9b0c6-0d70-3c29-863e-689533c3128f",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNzUi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "226",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "228",
+      "eventTime": "2026-01-22T12:12:39.993341333Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146916",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "227",
+        "identity": "21096@00170.local",
+        "requestId": "349e6bf2-aa31-4981-b146-c00cdfe3a73f",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "229",
+      "eventTime": "2026-01-22T12:12:40.032839125Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146917",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "227",
+        "startedEventId": "228",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "230",
+      "eventTime": "2026-01-22T12:12:40.032846625Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146918",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "231",
+      "eventTime": "2026-01-22T12:12:40.036856833Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146922",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "230",
+        "identity": "21096@00170.local",
+        "requestId": "f24dd712-35b5-45c2-9457-fe8ef76f8992",
+        "historySizeBytes": "38585"
+      }
+    },
+    {
+      "eventId": "232",
+      "eventTime": "2026-01-22T12:12:40.045085083Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146926",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "230",
+        "startedEventId": "231",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "233",
+      "eventTime": "2026-01-22T12:12:40.045145Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146927",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "03c6300a-f525-35e4-97c1-5b62af95a13d",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wNzki"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "232",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "234",
+      "eventTime": "2026-01-22T12:12:40.048762458Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146932",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "233",
+        "identity": "21096@00170.local",
+        "requestId": "ac647fd4-5627-4405-9833-35d6deaea0f1",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "235",
+      "eventTime": "2026-01-22T12:12:40.085717666Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146933",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "233",
+        "startedEventId": "234",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "236",
+      "eventTime": "2026-01-22T12:12:40.085724958Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146934",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "237",
+      "eventTime": "2026-01-22T12:12:40.089642041Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146938",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "236",
+        "identity": "21096@00170.local",
+        "requestId": "7ce288b1-e544-49ec-bccd-65cbf5c591b1",
+        "historySizeBytes": "39238"
+      }
+    },
+    {
+      "eventId": "238",
+      "eventTime": "2026-01-22T12:12:40.094450833Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146942",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "236",
+        "startedEventId": "237",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "239",
+      "eventTime": "2026-01-22T12:12:40.094496083Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146943",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "3326d297-df23-3135-824a-05053a2f5a1e",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wODEi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "238",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "240",
+      "eventTime": "2026-01-22T12:12:40.097249Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146948",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "239",
+        "identity": "21096@00170.local",
+        "requestId": "40b78ec1-41a8-4959-9df3-801fd5657196",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "241",
+      "eventTime": "2026-01-22T12:12:40.135120375Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146949",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "239",
+        "startedEventId": "240",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "242",
+      "eventTime": "2026-01-22T12:12:40.135127666Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146950",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "243",
+      "eventTime": "2026-01-22T12:12:40.140576541Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146954",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "242",
+        "identity": "21096@00170.local",
+        "requestId": "8571e5d1-86ba-4f47-b48e-0c0bea87a724",
+        "historySizeBytes": "39891"
+      }
+    },
+    {
+      "eventId": "244",
+      "eventTime": "2026-01-22T12:12:40.146989083Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146958",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "242",
+        "startedEventId": "243",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "245",
+      "eventTime": "2026-01-22T12:12:40.147037041Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146959",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "022d5bf0-a7b8-32f8-a83e-7040ae35932f",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wODIi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "244",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "246",
+      "eventTime": "2026-01-22T12:12:40.151324166Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146964",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "245",
+        "identity": "21096@00170.local",
+        "requestId": "b9380c5c-b056-4fb3-8e93-e3fbb861d6bc",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "247",
+      "eventTime": "2026-01-22T12:12:40.188030708Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146965",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "245",
+        "startedEventId": "246",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "248",
+      "eventTime": "2026-01-22T12:12:40.188037125Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146966",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "249",
+      "eventTime": "2026-01-22T12:12:40.193431750Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146970",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "248",
+        "identity": "21096@00170.local",
+        "requestId": "f229f7bf-c644-44ce-8b85-81c7cec9f614",
+        "historySizeBytes": "40544"
+      }
+    },
+    {
+      "eventId": "250",
+      "eventTime": "2026-01-22T12:12:40.197612875Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146974",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "248",
+        "startedEventId": "249",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "251",
+      "eventTime": "2026-01-22T12:12:40.197660791Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146975",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "2aba6d21-cfaa-3a39-a4d7-f57a8671f32d",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wODUi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "250",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "252",
+      "eventTime": "2026-01-22T12:12:40.201403916Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146980",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "251",
+        "identity": "21096@00170.local",
+        "requestId": "cb94f4ef-29c8-4333-8372-0960b7eca34f",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "253",
+      "eventTime": "2026-01-22T12:12:40.241978541Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146981",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "251",
+        "startedEventId": "252",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "254",
+      "eventTime": "2026-01-22T12:12:40.241985583Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146982",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "255",
+      "eventTime": "2026-01-22T12:12:40.247092583Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3146986",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "254",
+        "identity": "21096@00170.local",
+        "requestId": "22c0eefb-1cd7-4121-a7f7-b62aec53ae84",
+        "historySizeBytes": "41197"
+      }
+    },
+    {
+      "eventId": "256",
+      "eventTime": "2026-01-22T12:12:40.252378166Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3146990",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "254",
+        "startedEventId": "255",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "257",
+      "eventTime": "2026-01-22T12:12:40.252441916Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3146991",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "a7a0aee6-b590-3f58-81aa-1eb5d5d23f44",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMDg5IiwicGF5XzA5MSIsInBheV8wOTMiLCJwYXlfMDk2IiwicGF5XzA5NyJd"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "256",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "258",
+      "eventTime": "2026-01-22T12:12:40.255444583Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3146996",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "257",
+        "identity": "21096@00170.local",
+        "requestId": "a30a4887-9b4a-4fb8-9ed0-4863a9b5bbf7",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "259",
+      "eventTime": "2026-01-22T12:12:40.313085166Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3146997",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "257",
+        "startedEventId": "258",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "260",
+      "eventTime": "2026-01-22T12:12:40.313093708Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3146998",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "261",
+      "eventTime": "2026-01-22T12:12:40.317376625Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3147002",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "260",
+        "identity": "21096@00170.local",
+        "requestId": "75cd78b9-2d1b-4624-b27d-f4c1c8c63175",
+        "historySizeBytes": "41893"
+      }
+    },
+    {
+      "eventId": "262",
+      "eventTime": "2026-01-22T12:12:40.323078750Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3147006",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "260",
+        "startedEventId": "261",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "263",
+      "eventTime": "2026-01-22T12:12:40.323131208Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3147007",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "64a7cea2-d9e0-3f3b-95ca-821d3bc63a66",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wODki"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "262",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "264",
+      "eventTime": "2026-01-22T12:12:40.327544375Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3147012",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "263",
+        "identity": "21096@00170.local",
+        "requestId": "0cf0bbc7-e131-4f26-939a-d38e4ee36c29",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "265",
+      "eventTime": "2026-01-22T12:12:40.364740916Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3147013",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "263",
+        "startedEventId": "264",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "266",
+      "eventTime": "2026-01-22T12:12:40.364748166Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3147014",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "267",
+      "eventTime": "2026-01-22T12:12:40.370000541Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3147018",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "266",
+        "identity": "21096@00170.local",
+        "requestId": "92f01c58-d557-497e-b47f-c67cdac9e002",
+        "historySizeBytes": "42552"
+      }
+    },
+    {
+      "eventId": "268",
+      "eventTime": "2026-01-22T12:12:40.375191666Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3147022",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "266",
+        "startedEventId": "267",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "269",
+      "eventTime": "2026-01-22T12:12:40.375256125Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3147023",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "6ab728c2-f493-39fd-afdd-59ad4ec85db2",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wOTEi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "268",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "270",
+      "eventTime": "2026-01-22T12:12:40.380003708Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3147028",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "269",
+        "identity": "21096@00170.local",
+        "requestId": "163ab595-8c07-4d81-9397-aee5633e96b3",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "271",
+      "eventTime": "2026-01-22T12:12:40.418420542Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3147029",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "269",
+        "startedEventId": "270",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "272",
+      "eventTime": "2026-01-22T12:12:40.418427375Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3147030",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "273",
+      "eventTime": "2026-01-22T12:12:40.423458083Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3147034",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "272",
+        "identity": "21096@00170.local",
+        "requestId": "00ce5243-e0f0-4088-ad7a-cbd1b29ae45e",
+        "historySizeBytes": "43211"
+      }
+    },
+    {
+      "eventId": "274",
+      "eventTime": "2026-01-22T12:12:40.428805750Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3147038",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "272",
+        "startedEventId": "273",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "275",
+      "eventTime": "2026-01-22T12:12:40.428854292Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3147039",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "7bae1e51-24d5-3d7a-9f4d-775b9746cbd8",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wOTMi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "274",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "276",
+      "eventTime": "2026-01-22T12:12:40.432964Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3147044",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "275",
+        "identity": "21096@00170.local",
+        "requestId": "c25c8cc7-7ffc-4836-8c9a-38f6037ee066",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "277",
+      "eventTime": "2026-01-22T12:12:40.470044958Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3147045",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "275",
+        "startedEventId": "276",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "278",
+      "eventTime": "2026-01-22T12:12:40.470053292Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3147046",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "279",
+      "eventTime": "2026-01-22T12:12:40.474292083Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3147050",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "278",
+        "identity": "21096@00170.local",
+        "requestId": "a58bf609-c624-4949-81b2-272c886486c6",
+        "historySizeBytes": "43870"
+      }
+    },
+    {
+      "eventId": "280",
+      "eventTime": "2026-01-22T12:12:40.479708833Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3147054",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "278",
+        "startedEventId": "279",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "281",
+      "eventTime": "2026-01-22T12:12:40.479758750Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3147055",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "165a928d-98f0-3c81-bfcf-9d51e2af45e7",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wOTYi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "280",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "282",
+      "eventTime": "2026-01-22T12:12:40.483852Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3147060",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "281",
+        "identity": "21096@00170.local",
+        "requestId": "7db01929-8a2a-4cac-a657-2669326a5300",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "283",
+      "eventTime": "2026-01-22T12:12:40.524699958Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3147061",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "281",
+        "startedEventId": "282",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "284",
+      "eventTime": "2026-01-22T12:12:40.524705958Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3147062",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "285",
+      "eventTime": "2026-01-22T12:12:40.528577750Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3147066",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "284",
+        "identity": "21096@00170.local",
+        "requestId": "e21baea9-ca70-48c1-a317-a664041546e4",
+        "historySizeBytes": "44529"
+      }
+    },
+    {
+      "eventId": "286",
+      "eventTime": "2026-01-22T12:12:40.533693750Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3147070",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "284",
+        "startedEventId": "285",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "287",
+      "eventTime": "2026-01-22T12:12:40.533738458Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3147071",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "5db14b6c-70fe-32e6-8cce-2f78cdd79e89",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8wOTci"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "286",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "288",
+      "eventTime": "2026-01-22T12:12:40.537859500Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3147076",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "287",
+        "identity": "21096@00170.local",
+        "requestId": "6f438afb-5e64-42a6-878d-0e15a8ca63f7",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "289",
+      "eventTime": "2026-01-22T12:12:40.575062750Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3147077",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "287",
+        "startedEventId": "288",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "290",
+      "eventTime": "2026-01-22T12:12:40.575079667Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3147078",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "291",
+      "eventTime": "2026-01-22T12:12:40.580743375Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3147082",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "290",
+        "identity": "21096@00170.local",
+        "requestId": "66e9dfc2-4782-4c25-bb1c-dc76302ace6e",
+        "historySizeBytes": "45188"
+      }
+    },
+    {
+      "eventId": "292",
+      "eventTime": "2026-01-22T12:12:40.587478333Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3147086",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "290",
+        "startedEventId": "291",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "293",
+      "eventTime": "2026-01-22T12:12:40.587535542Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3147087",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "1e6c0db4-c452-382e-9b89-d4ecb70cc68a",
+        "activityType": {
+          "name": "CallIdbFacade"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "WyJwYXlfMTAwIl0="
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "292",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "294",
+      "eventTime": "2026-01-22T12:12:40.591685500Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3147092",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "293",
+        "identity": "21096@00170.local",
+        "requestId": "32ad3731-c3a0-4610-9425-c09cb7842ddf",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "295",
+      "eventTime": "2026-01-22T12:12:40.651248833Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3147093",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "293",
+        "startedEventId": "294",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "296",
+      "eventTime": "2026-01-22T12:12:40.651255Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3147094",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "297",
+      "eventTime": "2026-01-22T12:12:40.656010208Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3147098",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "296",
+        "identity": "21096@00170.local",
+        "requestId": "fcb6abaf-bb31-455c-addd-b0bd1746d045",
+        "historySizeBytes": "45848"
+      }
+    },
+    {
+      "eventId": "298",
+      "eventTime": "2026-01-22T12:12:40.660100333Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3147102",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "296",
+        "startedEventId": "297",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "299",
+      "eventTime": "2026-01-22T12:12:40.660145625Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_SCHEDULED",
+      "taskId": "3147103",
+      "activityTaskScheduledEventAttributes": {
+        "activityId": "c9e1bdcd-8b5a-3645-b0cd-07b2c5212e66",
+        "activityType": {
+          "name": "CallPgiGateway"
+        },
+        "taskQueue": {
+          "name": "payment-status-check",
+          "kind": "TASK_QUEUE_KIND_NORMAL"
+        },
+        "header": {},
+        "input": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "ImFkeWVuIg=="
+            },
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "InBheV8xMDAi"
+            }
+          ]
+        },
+        "scheduleToCloseTimeout": "0s",
+        "scheduleToStartTimeout": "0s",
+        "startToCloseTimeout": "30s",
+        "heartbeatTimeout": "0s",
+        "workflowTaskCompletedEventId": "298",
+        "retryPolicy": {
+          "initialInterval": "1s",
+          "backoffCoefficient": 2,
+          "maximumInterval": "10s",
+          "maximumAttempts": 3
+        }
+      }
+    },
+    {
+      "eventId": "300",
+      "eventTime": "2026-01-22T12:12:40.663472292Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_STARTED",
+      "taskId": "3147108",
+      "activityTaskStartedEventAttributes": {
+        "scheduledEventId": "299",
+        "identity": "21096@00170.local",
+        "requestId": "5bedc798-e45a-4b1e-b109-91ca9946624d",
+        "attempt": 1,
+        "workerVersion": {}
+      }
+    },
+    {
+      "eventId": "301",
+      "eventTime": "2026-01-22T12:12:40.698339167Z",
+      "eventType": "EVENT_TYPE_ACTIVITY_TASK_COMPLETED",
+      "taskId": "3147109",
+      "activityTaskCompletedEventAttributes": {
+        "scheduledEventId": "299",
+        "startedEventId": "300",
+        "identity": "21096@00170.local"
+      }
+    },
+    {
+      "eventId": "302",
+      "eventTime": "2026-01-22T12:12:40.698348042Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_SCHEDULED",
+      "taskId": "3147110",
+      "workflowTaskScheduledEventAttributes": {
+        "taskQueue": {
+          "name": "21096@00170.local:fac9bbdb-55ef-40b4-981f-9fd73b42c928",
+          "kind": "TASK_QUEUE_KIND_STICKY",
+          "normalName": "payment-status-check"
+        },
+        "startToCloseTimeout": "10s",
+        "attempt": 1
+      }
+    },
+    {
+      "eventId": "303",
+      "eventTime": "2026-01-22T12:12:40.702687333Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_STARTED",
+      "taskId": "3147114",
+      "workflowTaskStartedEventAttributes": {
+        "scheduledEventId": "302",
+        "identity": "21096@00170.local",
+        "requestId": "4cbd0071-36fd-439d-b46a-82966ca83a92",
+        "historySizeBytes": "46507"
+      }
+    },
+    {
+      "eventId": "304",
+      "eventTime": "2026-01-22T12:12:40.708355333Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_TASK_COMPLETED",
+      "taskId": "3147118",
+      "workflowTaskCompletedEventAttributes": {
+        "scheduledEventId": "302",
+        "startedEventId": "303",
+        "identity": "21096@00170.local",
+        "workerVersion": {},
+        "sdkMetadata": {
+          "sdkName": "temporal-java",
+          "sdkVersion": "1.32.1"
+        },
+        "meteringMetadata": {}
+      }
+    },
+    {
+      "eventId": "305",
+      "eventTime": "2026-01-22T12:12:40.708390208Z",
+      "eventType": "EVENT_TYPE_WORKFLOW_EXECUTION_COMPLETED",
+      "taskId": "3147119",
+      "workflowExecutionCompletedEventAttributes": {
+        "result": {
+          "payloads": [
+            {
+              "metadata": {
+                "encoding": "anNvbi9wbGFpbg=="
+              },
+              "data": "eyJnYXRld2F5IjoiYWR5ZW4iLCJzdWNjZXNzZnVsUGF5bWVudElkcyI6WyJwYXlfMDAxIiwicGF5XzAwNCIsInBheV8wMDUiLCJwYXlfMDA2IiwicGF5XzAwNyIsInBheV8wMDgiLCJwYXlfMDA5IiwicGF5XzAxMyIsInBheV8wMTgiLCJwYXlfMDIxIiwicGF5XzAzMSIsInBheV8wMzIiLCJwYXlfMDM0IiwicGF5XzAzNiIsInBheV8wMzciLCJwYXlfMDQwIiwicGF5XzA0MiIsInBheV8wNDUiLCJwYXlfMDUxIiwicGF5XzA1MiIsInBheV8wNTMiLCJwYXlfMDU2IiwicGF5XzA1NyIsInBheV8wNjUiLCJwYXlfMDY2IiwicGF5XzA2NyIsInBheV8wNzIiLCJwYXlfMDczIiwicGF5XzA3NCIsInBheV8wNzUiLCJwYXlfMDc5IiwicGF5XzA4MSIsInBheV8wODIiLCJwYXlfMDg1IiwicGF5XzA4OSIsInBheV8wOTEiLCJwYXlfMDkzIiwicGF5XzA5NiIsInBheV8wOTciLCJwYXlfMTAwIl0sImZhaWxlZENodW5rcyI6W3siY2h1bmtJbmRleCI6NCwicGF5bWVudElkcyI6WyJwYXlfMDU5Il0sImVycm9yIjoiUEdJIGNhbGwgZmFpbGVkIGFmdGVyIHJldHJpZXMiLCJzdGFnZSI6IlBHSSJ9XX0="
+            }
+          ]
+        },
+        "workflowTaskCompletedEventId": "304"
+      }
+    }
+  ]
+}
