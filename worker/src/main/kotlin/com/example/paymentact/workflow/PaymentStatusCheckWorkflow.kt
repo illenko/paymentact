@@ -66,7 +66,7 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
         val workflowId = Workflow.getInfo().workflowId
         config = input.config
         initializeActivities()
-
+        println("Heellp")
         logger.info("[workflowId={}] Starting payment status check for {} payments with config: maxParallelEsQueries={}, maxPaymentsPerChunk={}",
             workflowId, input.paymentIds.size, config.maxParallelEsQueries, config.maxPaymentsPerChunk)
 
@@ -129,15 +129,15 @@ class PaymentStatusCheckWorkflowImpl : PaymentStatusCheckWorkflow {
         val gatewayByPayment = mutableMapOf<String, String>()
         val lookupFailed = mutableListOf<String>()
 
-        val batchSize = config.maxParallelEsQueries
+//        val batchSize = config.maxParallelEsQueries
 
-//        val version = Workflow.getVersion("es-batch-size", Workflow.DEFAULT_VERSION, 1)
-//
-//        val batchSize = if (version == Workflow.DEFAULT_VERSION) {
-//            config.maxParallelEsQueries       // old behavior
-//        } else {
-//            config.maxParallelEsQueries / 2   // new behavior
-//        }
+        val version = Workflow.getVersion("es-batch-size", Workflow.DEFAULT_VERSION, 1)
+
+        val batchSize = if (version == Workflow.DEFAULT_VERSION) {
+            config.maxParallelEsQueries       // old behavior
+        } else {
+            config.maxParallelEsQueries / 2   // new behavior
+        }
 
         val batches = paymentIds.chunked(batchSize)
 
