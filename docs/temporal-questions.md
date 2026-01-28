@@ -1988,6 +1988,180 @@ Continue workflow                    Continue workflow
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+### Q: How does Temporal Server know which worker has the workflow cached?
+
+**A:** The worker **tells** Temporal Server after each workflow task completion. This is tracked via the sticky queue assignment.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│              HOW TEMPORAL SERVER TRACKS STICKY ASSIGNMENT                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Step 1: Worker completes workflow task                                     │
+│  ──────────────────────────────────────                                     │
+│                                                                             │
+│  Worker 1 finishes workflow task for workflow-123                           │
+│          │                                                                  │
+│          ▼                                                                  │
+│  Worker 1 sends response to Temporal Server:                                │
+│  {                                                                          │
+│    "workflowTaskCompleted": true,                                           │
+│    "commands": [...],                                                       │
+│    "stickyAttributes": {                                                    │
+│      "workerTaskQueue": "payment-processing-worker1-abc123-sticky",         │
+│      "scheduleToStartTimeout": "5s"                                         │
+│    }                                                                        │
+│  }                                                                          │
+│          │                                                                  │
+│          ▼                                                                  │
+│  Temporal Server records in sticky assignment table:                        │
+│  ┌─────────────────────────────────────────────────────┐                   │
+│  │  workflow-123 → sticky queue: worker1-abc123-sticky │                   │
+│  └─────────────────────────────────────────────────────┘                   │
+│                                                                             │
+│                                                                             │
+│  Step 2: Next task (or query) for this workflow                             │
+│  ──────────────────────────────────────────────────                         │
+│                                                                             │
+│  Activity completes (or query arrives)                                      │
+│          │                                                                  │
+│          ▼                                                                  │
+│  Temporal checks: "Does workflow-123 have a sticky assignment?"             │
+│          │                                                                  │
+│          ▼                                                                  │
+│  YES → Put task in "worker1-abc123-sticky" queue                            │
+│        (only Worker 1 polls this private queue)                             │
+│          │                                                                  │
+│          ▼                                                                  │
+│  Worker 1 picks up → Uses cached state → Fast!                              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Q: How are queries routed to the correct worker?
+
+**A:** Queries follow the same sticky routing as workflow tasks.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         QUERY ROUTING DECISION                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Client sends query for workflow-123                                        │
+│                │                                                            │
+│                ▼                                                            │
+│  Temporal Server checks sticky assignment table:                            │
+│    workflow-123 → "worker1-abc123-sticky"                                   │
+│                │                                                            │
+│                ▼                                                            │
+│          Has sticky assignment?                                             │
+│                │                                                            │
+│         ┌──────┴──────┐                                                     │
+│        YES            NO                                                    │
+│         │              │                                                    │
+│         ▼              ▼                                                    │
+│  Send query to      Send query to                                           │
+│  Worker 1's         normal queue                                            │
+│  sticky queue       (any worker)                                            │
+│         │              │                                                    │
+│         ▼              ▼                                                    │
+│  Worker 1           Random worker                                           │
+│  responds           must REPLAY first                                       │
+│  (cached, fast)     (slow)                                                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Key insight:** Queries are **NOT random** — Temporal actively tracks which worker last handled each workflow and routes queries to that worker first.
+
+### Q: What happens if the sticky worker is dead but Temporal doesn't know yet?
+
+**A:** Temporal uses a **timeout fallback** mechanism.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    STICKY TIMEOUT FALLBACK                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  T0: Query arrives for workflow-123                                         │
+│          │                                                                  │
+│          ▼                                                                  │
+│  T0: Temporal sends to Worker 1's sticky queue                              │
+│          │                                                                  │
+│          ▼                                                                  │
+│  T0-T5: Waiting for Worker 1 to respond...                                  │
+│         (Worker 1 is actually dead, but Temporal doesn't know)              │
+│          │                                                                  │
+│          ▼                                                                  │
+│  T5: STICKY TIMEOUT (default 5 seconds)                                     │
+│      Worker 1 didn't pick up in time                                        │
+│          │                                                                  │
+│          ▼                                                                  │
+│  T5: Temporal CLEARS sticky assignment:                                     │
+│      workflow-123 → (no sticky)                                             │
+│          │                                                                  │
+│          ▼                                                                  │
+│  T5: Resend query to NORMAL queue                                           │
+│          │                                                                  │
+│          ▼                                                                  │
+│  T5+: Any available worker picks up                                         │
+│          │                                                                  │
+│          ▼                                                                  │
+│  Worker 2 REPLAYS entire history and responds                               │
+│          │                                                                  │
+│          ▼                                                                  │
+│  Temporal records new sticky assignment:                                    │
+│      workflow-123 → worker2-sticky                                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Q: What is the performance impact of cached vs uncached queries?
+
+**A:** The difference can be dramatic, especially for workflows with large histories.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    QUERY PERFORMANCE: CACHED vs UNCACHED                     │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Example: Workflow with 10,000 events                                       │
+│                                                                             │
+│  CACHED query (sticky worker responds):                                     │
+│    └── Read from memory: ~10ms                                              │
+│                                                                             │
+│  UNCACHED query (any worker, must replay):                                  │
+│    ├── Load 10,000 events from DB: ~100ms                                   │
+│    ├── Deserialize events: ~50ms                                            │
+│    ├── Replay workflow code: ~200ms (10,000 SDK calls)                      │
+│    └── Total: ~350ms+                                                       │
+│                                                                             │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│                                                                             │
+│  Example: Workflow with 50,000 events (near limit)                          │
+│                                                                             │
+│  CACHED query:                                                              │
+│    └── Read from memory: ~10ms                                              │
+│                                                                             │
+│  UNCACHED query:                                                            │
+│    ├── Load 50,000 events: ~500ms                                           │
+│    ├── Deserialize: ~250ms                                                  │
+│    ├── Replay: ~1-2 seconds                                                 │
+│    └── Total: 2-3 seconds!                                                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Summary:
+─────────────────────────────────────────────────────────────────────────
+│ Scenario                    │ Cache Status │ Latency        │
+─────────────────────────────────────────────────────────────────────────
+│ Query right after activity  │ Likely cached│ Fast (~10ms)   │
+│ Query after worker restart  │ Not cached   │ Slow (100ms+)  │
+│ Query after long idle       │ May evict    │ Slow           │
+│ Query with 50K events       │ Not cached   │ Very slow (s)  │
+─────────────────────────────────────────────────────────────────────────
+```
+
 ### Q: When does sticky execution fail and what happens?
 
 **A:** Sticky execution fails when:
